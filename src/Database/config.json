@@ -1,0 +1,10 @@
+{
+    "token": "", 
+    "clientID": "", 
+    "mongoURL": "",
+    "color": "",
+    "errorMessage": "",
+    "missingPermissions": "",
+    "successEmoji": "",
+    "errorEmoji": ""
+}
