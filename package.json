@@ -1,0 +1,30 @@
+{
+  "name": "surge-discord-bot",
+  "version": "1.0.0",
+  "description": "🤖 Surge is an awesome discord bot with all the needs for your server!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevAgility/Surge-Discord-Bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevAgility/Surge-Discord-Bot/issues"
+  },
+  "homepage": "https://github.com/DevAgility/Surge-Discord-Bot#readme",
+  "dependencies": {
+    "@discordjs/builders": "^0.13.0",
+    "@discordjs/rest": "^0.4.1",
+    "ascii-table": "^0.0.9",
+    "axios": "^0.27.2",
+    "discord-giveaways": "^5.1.1",
+    "discord.js": "^13.7.0",
+    "fs": "^0.0.1-security",
+    "mongoose": "^6.3.5"
+  }
+}
