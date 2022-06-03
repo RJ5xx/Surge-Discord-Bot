@@ -114,7 +114,7 @@ module.exports = {
 
         const AnimalsEmbed = new MessageEmbed()
             .setTitle('Animals Commands')
-            .setDescription('Cat\nDog\nBird\nFox\nKoala\nPanda')
+            .setDescription('Cat\nDog\nBird\nBear\nFox\nKoala\nPanda')
             .setFooter({ text: `${client.user.username} Commands` })
             .setTimestamp()
             .setColor(config.color)
