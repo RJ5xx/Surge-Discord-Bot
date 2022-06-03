@@ -4,5 +4,5 @@
   <br>
   Surge Discord Bot
 </h1>
-
-<h3>The one bot your server needs
+<hr>
+<h3 align="center">The one bot your server needs</h3>
