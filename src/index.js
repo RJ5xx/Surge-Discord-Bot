@@ -30,4 +30,4 @@ for (file of functions) {
 client.handleEvents(eventsFiles, './src/Events');
 client.handleCommands(commandFolders, './src/Commands');
 
-client.login(process.env.TOKEN);
+client.login(config.token);
