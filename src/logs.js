@@ -252,32 +252,6 @@ module.exports = (client) => {
         });
     });
     /* ----------------------------------------------------------------------------------- */
-    client.on('guildCreate', (guild) => {
-        const guildCreate = new MessageEmbed()
-            .setTitle('Server joined!')
-            .setDescription(`${client.user.username} just joined **${guild.name}**! This server has ${guild.memberCount} members!`)
-            .setFooter({ text: `${client.user.username}`, iconURL: `${client.user.displayAvatarURL({ dynamic: false, png: 'true' })}` })
-            .setColor(config.color)
-            .setTimestamp()
-
-        client.channels.cache.get(config.guildCreateID).send({ embeds: [guildCreate] }).catch(error => {
-            return;
-        });
-    });
-    /* ----------------------------------------------------------------------------------- */
-    client.on('guildDelete', (guild) => {
-        const guildCreate = new MessageEmbed()
-            .setTitle('Server left!')
-            .setDescription(`${client.user.username} just left **${guild.name}**! This server had ${guild.memberCount} members!`)
-            .setFooter({ text: `${client.user.username}`, iconURL: `${client.user.displayAvatarURL({ dynamic: false, png: 'true' })}` })
-            .setColor(config.color)
-            .setTimestamp()
-
-        client.channels.cache.get(config.guildDeleteID).send({ embeds: [guildCreate] }).catch(error => {
-            return;
-        });
-    });
-    /* ----------------------------------------------------------------------------------- */
     client.on('guildMemberAdd', (member) => {
         joinLeave.findOne({ guildID: member.guild.id }, async (error, data) => {
             if (!data) {
