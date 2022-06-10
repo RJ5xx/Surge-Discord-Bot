@@ -1,4 +1,4 @@
-<img width="175" height="175" align="left" style="float: left; margin: 0 10px 0 0;" alt="Surge" src="https://cdn.discordapp.com/attachments/964062955018793002/982567779054014504/image0.jpeg">  
+<img width="175" height="175" align="left" style="float: left; margin: 0 10px 0 0;" alt="Surge" src="surge.png">  
 
 <h1>Surge</h1>
 <p>The one bot your server <b>needs</b>!</p>
