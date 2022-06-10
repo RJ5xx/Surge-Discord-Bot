@@ -1,4 +1,4 @@
-<img width="175" height="175" align="left" style="float: left; margin: 0 10px 0 0;" alt="Surge" src="surge.png">  
+<img width="175" height="175" align="left" style="float: left; margin: 0 10px 0 0;" alt="Surge" src="34BC0008-2652-486E-B5B5-8EBBC198F2C0.jpeg">  
 
 <h1>Surge</h1>
 <p>The one bot your server <b>needs</b>!</p>
