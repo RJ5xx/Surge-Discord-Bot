@@ -39,5 +39,5 @@
   <li>Many more!</li>
 </ul>
 
-<p>If you want to learn to make a bot, here is a <a href="https://replit.com/@agility2525/Discord-Starter-Template?v=1">simple template</a> on replit for you to get started!</p>
-<a href="https://replit.com/@agility2525/Discord-Starter-Template?v=1"><img alt="Run on replit!" src="https://repl.it/badge/github/devagility/Discord-Starter-Template"></a>
+<p>If you want to learn to make a bot, here is a <a href="https://replit.com/@Cresent25/Discord-Starter-Template?v=1">simple template</a> on replit for you to get started!</p>
+<a href="https://replit.com/@Cresent25/Discord-Starter-Template?v=1"><img alt="Run on replit!" src="https://replit.com/@Cresent25/Discord-Starter-Template"></a>
