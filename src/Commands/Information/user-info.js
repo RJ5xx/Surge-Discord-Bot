@@ -63,7 +63,7 @@ module.exports = {
                 { name: 'Joined At', value: `${new Date(member.joinedTimestamp).toString().substring(4, 15)}`, inline: true },
                 { name: 'Kickable', value: `${member.kickable}`, inline: true },
                 { name: 'Bannable', value: `${member.bannable}`, inline: true },
-                { name: 'booster', value: `${member.premiumSince ? 'since ' + member.premiumSince.toLocaleString() : 'Nope'}`, inline: true },
+                { name: 'booster', value: `${member.premiumSince ? 'Since ' + member.premiumSince.toLocaleString() : 'Nope'}`, inline: true },
                 { name: 'Badges', value: flags_string, inline: true }
             )
             .setTimestamp()
