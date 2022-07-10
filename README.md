@@ -29,13 +29,13 @@
   <li>🛠️ Moderation commands</li>
   <li>ℹ️ Information commands</li>
   <li>🐈 Animal commands</li>
+  <li>🎮 Fun commands </li>
 </ul>
 <br>
 <h2>Coming soon</h2>
 <ul>
   <li>🎭 Profile system</li>
   <li>🖼️ Image manipulation commands</li>
-  <li>🎮 Fun commands </li>
   <li>Many more!</li>
 </ul>
 
