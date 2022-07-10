@@ -26,6 +26,8 @@
     "discord-giveaways": "^5.1.1",
     "discord.js": "^13.7.0",
     "fs": "^0.0.1-security",
-    "mongoose": "^6.3.5"
+    "got": "^12.1.0",
+    "mongoose": "^6.3.5",
+    "util": "^0.12.4"
   }
 }
