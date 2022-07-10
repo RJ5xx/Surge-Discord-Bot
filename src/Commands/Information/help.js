@@ -48,6 +48,12 @@ module.exports = {
                             description: 'All animals commands!',
                             value: 'animals',
                         },
+                        {
+                            label: 'Fun',
+                            emoji: '🎈',
+                            description: 'All fun commands!',
+                            value: 'fun',
+                        },
                     ]),
             );
 
@@ -76,7 +82,7 @@ module.exports = {
 
         const embed = new MessageEmbed()
             .setTitle(`${client.user.username} Discord bot!`)
-            .setDescription(`${client.user.username} is a discord bot with many features which are all fun and easy to use! It has over 30 commands which are cool in every way! Choose a category in the section below to see the commands! ${client.user.username} is currently in ${client.guilds.cache.size} servers and monitoring ${interaction.client.guilds.cache.reduce((acc, g) => acc + g.memberCount, 0)} users!\n\nNote: Interaction with the menu will expire after **15** seconds!`)
+            .setDescription(`${client.user.username} is a discord bot with many features which are all fun and easy to use! It has over 35 commands which are cool in every way! Choose a category in the section below to see the commands! ${client.user.username} is currently in ${client.guilds.cache.size} servers and monitoring ${interaction.client.guilds.cache.reduce((acc, g) => acc + g.memberCount, 0)} users!\n\nNote: Interaction with the menu will expire after **15** seconds!`)
             .setThumbnail(`${client.user.displayAvatarURL({ dynamic: true })}`)
             .setColor('#ED4245')
             .setFooter({ text: `${client.user.username}`, iconURL: `${client.user.displayAvatarURL({ dynamic: true })}` })
@@ -112,9 +118,16 @@ module.exports = {
             .setTimestamp()
             .setColor(config.color)
 
-        const AnimalsEmbed = new MessageEmbed()
+            const AnimalsEmbed = new MessageEmbed()
             .setTitle('Animals Commands')
             .setDescription('Cat\nDog\nBird\nBear\nFox\nKoala\nPanda')
+            .setFooter({ text: `${client.user.username} Commands` })
+            .setTimestamp()
+            .setColor(config.color)
+
+            const FunEmbed = new MessageEmbed()
+            .setTitle('Fun Commands')
+            .setDescription('Say\nMeme\n8ball\nCoinflip\nDiceroll')
             .setFooter({ text: `${client.user.username} Commands` })
             .setTimestamp()
             .setColor(config.color)
@@ -141,6 +154,9 @@ module.exports = {
             }
             if (value === 'animals') {
                 collected.reply({ embeds: [AnimalsEmbed], ephemeral: true });
+            }
+            if (value === 'fun') {
+                collected.reply({ embeds: [FunEmbed], ephemeral: true });
             }
         })
     },
