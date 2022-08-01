@@ -63,15 +63,19 @@ module.exports = {
                     .setEmoji('🔗')
                     .setStyle('LINK')
                     .setLabel('Support')
-                    .setURL('https://discord.gg/VYeZkTzFHD'),
+                    .setURL('https://discord.gg/mun838NkDj'),
 
                 new MessageButton()
                     .setEmoji('✅')
                     .setStyle('LINK')
                     .setLabel('Invite')
-                    .setURL(
-                        'https://discord.com/api/oauth2/authorize?client_id=965205833724076082&permissions=8&scope=bot%20applications.commands'
-                    ),
+                    .setURL('https://discord.com/api/oauth2/authorize?client_id=965205833724076082&permissions=8&scope=bot%20applications.commands'),
+
+                new MessageButton()
+                    .setEmoji('↗️')
+                    .setStyle('LINK')
+                    .setLabel('Source Code')
+                    .setURL('https://github.com/Neutral75/Surge-Discord-Bot')
 
                 /* new MessageButton()
                     .setEmoji('↗')
@@ -118,14 +122,14 @@ module.exports = {
             .setTimestamp()
             .setColor(config.color)
 
-            const AnimalsEmbed = new MessageEmbed()
+        const AnimalsEmbed = new MessageEmbed()
             .setTitle('Animals Commands')
             .setDescription('Cat\nDog\nBird\nBear\nFox\nKoala\nPanda')
             .setFooter({ text: `${client.user.username} Commands` })
             .setTimestamp()
             .setColor(config.color)
 
-            const FunEmbed = new MessageEmbed()
+        const FunEmbed = new MessageEmbed()
             .setTitle('Fun Commands')
             .setDescription('Say\nMeme\n8ball\nCoinflip\nDiceroll')
             .setFooter({ text: `${client.user.username} Commands` })
