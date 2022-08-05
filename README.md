@@ -10,7 +10,7 @@
   <li><a href="https://discord.com/api/oauth2/authorize?client_id=982579470399586304&permissions=8&scope=bot%20applications.commands">Invite</a></li>
   <li><a href="https://discord.gg/dRZQDYzdfK">Support Server</a></li>
   <li><a href="">Website (coming soon)</a></li>
-  <li><a href="https://paypal.me/agility25">Donate</a></li>
+  <li><a href="https://paypal.me/neutral75">Donate</a></li>
 </ul>
 <br>
 <h2>Installation</h2>
