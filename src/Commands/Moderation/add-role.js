@@ -33,10 +33,6 @@ module.exports = {
             return interaction.editReply({ content: 'This user already has that role!' });
         }
 
-        if (interaction.guild.me.roles.highest.comparePositionTo(role) <= 0) {
-            return interaction.editReply({ content: 'This role is higher than me and I can\'t add it!' });
-        }
-
         member.roles.add(role.id).catch(error => {
             interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });

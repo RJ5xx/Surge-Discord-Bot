@@ -1,4 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const Discord = require('discord.js');
 const config = require('../../Database/config.json');
 const ms = require('ms');
 
@@ -25,6 +26,7 @@ module.exports = {
                 { name: 'User Count', value: `${interaction.client.guilds.cache.reduce((acc, g) => acc + g.memberCount, 0)}`, inline: true },
                 { name: 'Commands', value: `${client.commands.size}`, inline: true },
                 { name: 'Node Version', value: `${process.version}`, inline: true },
+                { name: 'Discord.js Version', value: `${Discord.version}`, inline: true },
             )
             .setTimestamp()
 
