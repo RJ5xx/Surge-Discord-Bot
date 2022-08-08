@@ -70,7 +70,7 @@ module.exports = {
                     .setEmoji('✅')
                     .setStyle('Link')
                     .setLabel('Invite')
-                    .setURL('https://discord.com/api/oauth2/authorize?client_id=965205833724076082&permissions=8&scope=bot%20applications.commands'),
+                    .setURL('https://discord.com/api/oauth2/authorize?client_id=982579470399586304&permissions=8&scope=bot%20applications.commands'),
 
                 new ButtonBuilder()
                     .setEmoji('💸')
