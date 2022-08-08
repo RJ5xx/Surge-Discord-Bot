@@ -21,7 +21,7 @@ module.exports = {
         const member = interaction.guild.members.cache.get(user.id) || await interaction.guild.members.fetch(user.id).catch(err => { });
         const reason = interaction.options.getString('reason');
 
-        if (member.permissions.has(PermissionsBitField.Flags.BanMembers)) {
+        if (!interaction.user.permissions.has(PermissionsBitField.Flags.BanMembers)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
         }
 

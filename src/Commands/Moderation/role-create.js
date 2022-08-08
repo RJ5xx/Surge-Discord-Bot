@@ -29,7 +29,7 @@ module.exports = {
         const name = interaction.options.getString('name');
         const randomColor = colors[Math.floor((Math.random() * 11) + 0)];
 
-        if (member.permissions.has(PermissionsBitField.Flags.ManageRoles)) {
+        if (!interaction.user.permissions.has(PermissionsBitField.Flags.ManageRoles)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
         }
 

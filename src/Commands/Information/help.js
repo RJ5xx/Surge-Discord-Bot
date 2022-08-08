@@ -64,25 +64,25 @@ module.exports = {
                     .setEmoji('🔗')
                     .setStyle('Link')
                     .setLabel('Support')
-                    .setURL('https://discord.gg/mun838NkDj/'),
+                    .setURL('https://discord.gg/mun838NkDj'),
 
                 new ButtonBuilder()
                     .setEmoji('✅')
                     .setStyle('Link')
                     .setLabel('Invite')
-                    .setURL('https://discord.com/api/oauth2/authorize?client_id=965205833724076082&permissions=8&scope=bot%20applications.commands/'),
+                    .setURL('https://discord.com/api/oauth2/authorize?client_id=965205833724076082&permissions=8&scope=bot%20applications.commands'),
 
                 new ButtonBuilder()
                     .setEmoji('💸')
                     .setStyle('Link')
                     .setLabel('Vote')
-                    .setURL('https://top.gg/bot/982579470399586304/'),
+                    .setURL('https://top.gg/bot/982579470399586304'),
 
                 new ButtonBuilder()
                     .setEmoji('↗️')
                     .setStyle('Link')
                     .setLabel('Source Code')
-                    .setURL('https://github.com/Neutral75/Surge-Discord-Bot/')
+                    .setURL('https://github.com/Neutral75/Surge-Discord-Bot')
             );
 
         const embed = new EmbedBuilder()

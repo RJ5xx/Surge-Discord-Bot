@@ -27,7 +27,7 @@ module.exports = {
         const time = interaction.options.getString('time');
         const msTime = ms(time);
 
-        if (member.permissions.has(PermissionsBitField.Flags.ModerateMembers)) {
+        if (!interaction.user.permissions.has(PermissionsBitField.Flags.ModerateMembers)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
         }
 

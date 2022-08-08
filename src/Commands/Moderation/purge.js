@@ -16,7 +16,7 @@ module.exports = {
 
         const amount = interaction.options.getInteger('amount');
 
-        if (member.permissions.has(PermissionsBitField.Flags.ManageMessages)) {
+        if (!interaction.user.permissions.has(PermissionsBitField.Flags.ManageMessages)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
         }
 

@@ -16,7 +16,7 @@ module.exports = {
 
         const channel = interaction.options.getChannel('channel');
 
-        if (member.permissions.has(PermissionsBitField.Flags.ManageChannels)) {
+        if (!interaction.user.permissions.has(PermissionsBitField.Flags.ManageChannels)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
         }
 
