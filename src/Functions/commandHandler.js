@@ -1,10 +1,9 @@
 const fs = require('fs');
-const { REST } = require('@discordjs/rest');
-const { Routes } = require('discord-api-types/v9');
+const { REST } = require('discord.js');
+const { Routes } = require('discord-api-types/v10');
 const AsciiTable = require('ascii-table');
 const table = new AsciiTable();
 table.setHeading('Commands', 'Description', 'Stats').setBorder('|', '=', "0", "0");
-const config = require('../Database/config.json');
 
 module.exports = (client) => {
     client.handleCommands = async (commandFolders, path) => {
@@ -27,9 +26,9 @@ module.exports = (client) => {
         };
         console.log(table.toString());
 
-        const rest = new REST({ version: '9' }).setToken(config.token);
+        const rest = new REST({ version: '9' }).setToken(process.env.token);
 
-        rest.put(Routes.applicationCommands(config.clientID),
+        rest.put(Routes.applicationCommands(process.env.clientID),
             { body: client.commandArray })
             .then(() => console.log('Successfully registered global application commands!'))
             .catch(console.error);

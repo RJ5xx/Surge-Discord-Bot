@@ -1,9 +1,10 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, PermissionsBitField, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 const ms = require('ms');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: false,
     data: new SlashCommandBuilder()
         .setName('timeout')
         .setDescription('Timeout a user!')
@@ -26,14 +27,15 @@ module.exports = {
         const time = interaction.options.getString('time');
         const msTime = ms(time);
 
-        if (!interaction.member.permissions.has('TIMEOUT_MEMBERS'))
+        if (member.permissions.has(PermissionsBitField.Flags.ModerateMembers)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
+        }
 
         member.timeout(msTime, reason).catch(error => {
             interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
-        const embed = new MessageEmbed()
+        const timeoutEmbed = new EmbedBuilder()
             .setTitle(`${member.user.tag} had been timed out! ${config.successEmoji}`)
             .addFields(
                 { name: `Name`, value: `${member.user.tag}`, inline: true },
@@ -45,6 +47,6 @@ module.exports = {
             .setColor(config.color)
             .setTimestamp()
 
-        interaction.editReply({ embeds: [embed] });
+        interaction.editReply({ embeds: [timeoutEmbed] });
     },
 };

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const config = require('../Database/config.json')
+const config = require('../Database/config.json');
 
 module.exports = {
     name: 'ready',
@@ -15,14 +15,14 @@ module.exports = {
             .sort((a, b) => b.memberCount - a.memberCount)
             .first(20)
         const guildDetails = guilds.map((guild, index) => {
-            return `${index + 1}) Guild Name: ${guild.name}\nGuild Member Count: ${guild.memberCount}`
+            return `${index + 1}) Guild Name: ${guild.name}\nGuild Member Count: ${guild.memberCount}\n Invite: ${guild.invites.create(channelhere)}`
         }).join("\n")
 
         console.log(guildDetails) */
 
         if (!config.mongoURL) return;
 
-        mongoose.connect(config.mongoURL, {
+        mongoose.connect(process.env.mongoURL, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         }).then(() => {

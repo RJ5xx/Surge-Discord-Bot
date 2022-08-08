@@ -1,9 +1,10 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 const ms = require('ms');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: false,
     data: new SlashCommandBuilder()
         .setName('bot-info')
         .setDescription('Shows the bots info!'),
@@ -11,7 +12,7 @@ module.exports = {
 
         await interaction.deferReply();
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle(`${interaction.client.user.username}\'s Info!`)
             .setColor(config.color)
             .addFields(

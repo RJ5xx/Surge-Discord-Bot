@@ -6,25 +6,25 @@ module.exports = {
     ownerOnly: false,
     voteOnly: false,
     data: new SlashCommandBuilder()
-        .setName('dog')
-        .setDescription('Shows a random dog!'),
+        .setName('whale')
+        .setDescription('Shows a random whale!'),
     async execute(interaction) {
 
         await interaction.deferReply();
 
-        const url = "https://some-random-api.ml/animal/dog";
+        const url = "https://some-random-api.ml/animal/whale";
 
         axios
             .get(url)
             .then((res) => {
-                const dogEmbed = new EmbedBuilder()
+                const whaleEmbed = new EmbedBuilder()
                     .setColor(config.color)
-                    .setTitle(`Dog Image!`)
+                    .setTitle(`Whale Image!`)
                     .setImage(res.data.image)
                     .setFooter({ text: 'Aww, how cute' })
                     .setTimestamp()
 
-                interaction.editReply({ embeds: [dogEmbed] });
+                interaction.editReply({ embeds: [whaleEmbed] });
             }).catch(() => {
                 interaction.editReply({ content: 'Image not avaibale, try again later!' });
             })

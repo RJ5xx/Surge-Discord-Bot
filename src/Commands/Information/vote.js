@@ -5,15 +5,15 @@ module.exports = {
     ownerOnly: false,
     voteOnly: false,
     data: new SlashCommandBuilder()
-        .setName('invite')
-        .setDescription('Invite the bot!'),
+        .setName('vote')
+        .setDescription('Vote the bot!'),
     async execute(interaction, client) {
 
         await interaction.deferReply();
 
         const embed = new EmbedBuilder()
-            .setTitle(`Invite Surge!`)
-            .setDescription(`Here is the link to invite ${client.user.username}!\nhttps://discord.com/api/oauth2/authorize?client_id=${client.id}&permissions=8&scope=bot%20applications.commands`)
+            .setTitle(`Vote for Surge!`)
+            .setDescription(`Here is the link to vote for ${client.user.username}!\nhttps://top.gg/bot/982579470399586304`)
             .setColor(config.color)
             .setTimestamp()
 

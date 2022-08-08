@@ -1,21 +1,22 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: false,
     data: new SlashCommandBuilder()
         .setName('channel-info')
         .setDescription('Shows info about a channel!')
         .addChannelOption(option => option.setName('channel')
             .setDescription('Which channel\'s info do you need?')
-            .setRequired(true)),
+            .setRequired(false)),
     async execute(interaction) {
 
         await interaction.deferReply();
 
-        const channel = interaction.options.getChannel('channel');
+        const channel = interaction.options.getChannel('channel') || interaction.channel;
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setColor(config.color)
             .setTimestamp()
             .setTitle(`${channel.name}\'s Info!`)

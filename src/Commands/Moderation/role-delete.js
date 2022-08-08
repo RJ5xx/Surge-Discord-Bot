@@ -1,8 +1,9 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, PermissionsBitField, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: true,
     data: new SlashCommandBuilder()
         .setName('role-delete')
         .setDescription('Delete a role!')
@@ -15,14 +16,15 @@ module.exports = {
 
         const role = interaction.options.getRole('role');
 
-        if (!interaction.member.permissions.has('MANAGE_ROLES'))
+        if (member.permissions.has(PermissionsBitField.Flags.ManageRoles)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
+        }
 
         interaction.guild.roles.delete(`${role.id}`).catch(error => {
             interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
-        const embed = new MessageEmbed()
+        const roleDeleteEmbed = new EmbedBuilder()
             .setTitle(`@${role.name} has been deleted! ${config.successEmoji}`)
             .addFields(
                 { name: `Role`, value: `${role}`, inline: true },
@@ -32,6 +34,6 @@ module.exports = {
             .setColor(config.color)
             .setTimestamp()
 
-        interaction.editReply({ embeds: [embed] });
+        interaction.editReply({ embeds: [roleDeleteEmbed] });
     },
 };

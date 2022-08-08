@@ -1,8 +1,9 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { ChannelType, EmbedBuilder, PermissionsBitField, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: true,
     data: new SlashCommandBuilder()
         .setName('channel-create')
         .setDescription('Create a channel!')
@@ -15,20 +16,24 @@ module.exports = {
 
         const name = interaction.options.getString('name');
 
-        if (!interaction.member.permissions.has('MANAGE_CHANNELS'))
+        if (member.permissions.has(PermissionsBitField.Flags.ManageChannels)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
+        }
 
-        interaction.guild.channels.create(`${name}`, {
-            type: "GUILD_TEXT",
-            permissionOverwrites: [{
-                id: interaction.guild.id,
-                allow: ["VIEW_CHANNEL"],
-            }]
+        interaction.guild.channels.create({
+            name: `${name}`,
+            type: ChannelType.GuildText,
+            permissionOverwrites: [
+                {
+                    id: interaction.guild.id,
+                    allow: [PermissionsBitField.Flags.ViewChannel],
+                },
+            ],
         }).catch(error => {
             interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
-        const embed = new MessageEmbed()
+        const channelCreateEmbed = new EmbedBuilder()
             .setTitle(`#${name} has been created! ${config.successEmoji}`)
             .addFields(
                 { name: `Channel Name`, value: `${name}`, inline: true },
@@ -38,6 +43,6 @@ module.exports = {
             .setColor(config.color)
             .setTimestamp()
 
-        interaction.editReply({ embeds: [embed] });
+        interaction.editReply({ embeds: [channelCreateEmbed] });
     },
 };

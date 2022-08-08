@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const modlogs = require('./Schemas/modlogsModel.js');
 const joinLeave = require('./Schemas/joinLeaveModel.js');
 const config = require('./Database/config.json');
@@ -11,7 +11,7 @@ module.exports = (client) => {
             if (data) {
                 const modlogs = client.channels.cache.get(data.modlogsChannelID);
 
-                const channelCreate = new MessageEmbed()
+                const channelCreate = new EmbedBuilder()
                     .setTitle('Channel created!')
                     .setDescription(`Channel: ${channel}\nName: ${channel.name}\nID: ${channel.id}\nType: ${channel.type}`)
                     .setColor(config.color)
@@ -31,7 +31,7 @@ module.exports = (client) => {
             if (data) {
                 const modlogs = client.channels.cache.get(data.modlogsChannelID);
 
-                const channelDelete = new MessageEmbed()
+                const channelDelete = new EmbedBuilder()
                     .setTitle('Channel deleted!')
                     .setDescription(`Name: ${channel.name}\nID: ${channel.id}\nType: ${channel.type}`)
                     .setColor(config.color)
@@ -51,7 +51,7 @@ module.exports = (client) => {
             if (data) {
                 const modlogs = client.channels.cache.get(data.modlogsChannelID);
 
-                const emojiCreate = new MessageEmbed()
+                const emojiCreate = new EmbedBuilder()
                     .setTitle('Emoji created!')
                     .setDescription(`Emoji: ${emoji}\nName: ${emoji.name}\nID: ${emoji.id}\nAnimated: ${emoji.animated}\nURL: ${emoji.url}`)
                     .setThumbnail(`${emoji.url}`)
@@ -72,7 +72,7 @@ module.exports = (client) => {
             if (data) {
                 const modlogs = client.channels.cache.get(data.modlogsChannelID);
 
-                const emojiDelete = new MessageEmbed()
+                const emojiDelete = new EmbedBuilder()
                     .setTitle('Emoji deleted!')
                     .setDescription(`Name: ${emoji.name}\nID: ${emoji.id}\nAnimated: ${emoji.animated}\nURL: ${emoji.url}`)
                     .setThumbnail(`${emoji.url}`)
@@ -93,7 +93,7 @@ module.exports = (client) => {
             if (data) {
                 const modlogs = client.channels.cache.get(data.modlogsChannelID);
 
-                const guildBanAdd = new MessageEmbed()
+                const guildBanAdd = new EmbedBuilder()
                     .setTitle('Member banned!')
                     .setDescription(`Name: ${ban.user.username}\nID: ${ban.user.id}\nBot: ${ban.user.bot}`)
                     .setThumbnail(`${ban.user.displayAvatarURL({ dynamic: true })}`)
@@ -114,7 +114,7 @@ module.exports = (client) => {
             if (data) {
                 const modlogs = client.channels.cache.get(data.modlogsChannelID);
 
-                const guildBanRemove = new MessageEmbed()
+                const guildBanRemove = new EmbedBuilder()
                     .setTitle('Member unbanned!')
                     .setDescription(`Name: ${ban.user.username}\nID: ${ban.user.id}\nBot: ${ban.user.bot}`)
                     .setThumbnail(`${ban.user.displayAvatarURL({ dynamic: true })}`)
@@ -135,7 +135,7 @@ module.exports = (client) => {
             if (data) {
                 const modlogs = client.channels.cache.get(data.modlogsChannelID);
 
-                const inviteCreate = new MessageEmbed()
+                const inviteCreate = new EmbedBuilder()
                     .setTitle('Invite created!')
                     .setDescription(`URL: ${invite.url}\nCode: ${invite.code}\nInviter: ${invite.inviter}\nMax uses: ${invite.maxUses}\nMax age: ${invite.maxAge} seconds\nExpires at: ${invite.expiresAt}`)
                     .setColor(config.color)
@@ -155,7 +155,7 @@ module.exports = (client) => {
             if (data) {
                 const modlogs = client.channels.cache.get(data.modlogsChannelID);
 
-                const inviteDelete = new MessageEmbed()
+                const inviteDelete = new EmbedBuilder()
                     .setTitle('Invite deleted!')
                     .setDescription(`URL: ${invite.url}\nCode: ${invite.code}`)
                     .setColor(config.color)
@@ -175,7 +175,7 @@ module.exports = (client) => {
             if (data) {
                 const modlogs = client.channels.cache.get(data.modlogsChannelID);
 
-                const roleCreate = new MessageEmbed()
+                const roleCreate = new EmbedBuilder()
                     .setTitle('Role created!')
                     .setDescription(`Role: ${role}\nName: ${role.name}\nID: ${role.id}\nColor: ${role.color}\nHex Color: ${role.hexColor}\nCreated at: ${role.createdAt}\nRole icon: ${role.icon || 'No icon'}`)
                     .setColor(config.color)
@@ -195,7 +195,7 @@ module.exports = (client) => {
             if (data) {
                 const modlogs = client.channels.cache.get(data.modlogsChannelID);
 
-                const roleDelete = new MessageEmbed()
+                const roleDelete = new EmbedBuilder()
                     .setTitle('Role deleted!')
                     .setDescription(`Name: ${role.name}\nID: ${role.id}\nColor: ${role.color}\nHex Color: ${role.hexColor}\nCreated at: ${role.createdAt}\nRole icon: ${role.icon || 'No icon'}`)
                     .setColor(config.color)
@@ -215,7 +215,7 @@ module.exports = (client) => {
             if (data) {
                 const modlogs = client.channels.cache.get(data.modlogsChannelID);
 
-                const stickerCreate = new MessageEmbed()
+                const stickerCreate = new EmbedBuilder()
                     .setTitle('Sticker created!')
                     .setDescription(`Name: ${sticker.name}\nID: ${sticker.id}\nURL: ${sticker.url}\nCreated at ${sticker.createdAt}`)
                     .setThumbnail(`${sticker.url}`)
@@ -236,7 +236,7 @@ module.exports = (client) => {
             if (data) {
                 const modlogs = client.channels.cache.get(data.modlogsChannelID);
 
-                const stickerDelete = new MessageEmbed()
+                const stickerDelete = new EmbedBuilder()
                     .setTitle('Sticker deleted!')
                     .setDescription(`Name: ${sticker.name}\nID: ${sticker.id}\nURL: ${sticker.url}\nCreated at ${sticker.createdAt}`)
                     .setThumbnail(`${sticker.url}`)
@@ -259,7 +259,7 @@ module.exports = (client) => {
             } else {
                 const channel = member.client.channels.cache.get(data.joinChannelID);
 
-                const welcome = new MessageEmbed()
+                const welcome = new EmbedBuilder()
                     .setTitle('Welcome!')
                     .setDescription(`${member}, welcome to ${member.guild.name}, we hope you have an amazing time in our server! Make sure to read the rules and have fun!`)
                     .setColor(config.color)
@@ -276,7 +276,7 @@ module.exports = (client) => {
             if (data) {
                 const modlogs = client.channels.cache.get(data.modlogsChannelID);
 
-                const guildMemberAdd = new MessageEmbed()
+                const guildMemberAdd = new EmbedBuilder()
                     .setTitle('Member joined!')
                     .setDescription(`Member: ${member}\nName + Tag: ${member.user.tag}\nID: ${member.id}`)
                     .setThumbnail(`${member.user.displayAvatarURL({ dynamic: true })}`)
@@ -292,6 +292,32 @@ module.exports = (client) => {
         });
     });
     /* ----------------------------------------------------------------------------------- */
+    client.on('guildCreate', (guild) => {
+        const guildCreate = new EmbedBuilder()
+            .setTitle('Server joined!')
+            .setDescription(`${client.user.username} just joined **${guild.name}**! This server has ${guild.memberCount} members!`)
+            .setFooter({ text: `${client.user.username}`, iconURL: `${client.user.displayAvatarURL({ dynamic: false, png: 'true' })}` })
+            .setColor(config.color)
+            .setTimestamp()
+
+        client.channels.cache.get('982587950963515422').send({ embeds: [guildCreate] }).catch(error => {
+            return;
+        });
+    });
+    /* ----------------------------------------------------------------------------------- */
+    client.on('guildDelete', (guild) => {
+        const guildCreate = new EmbedBuilder()
+            .setTitle('Server left!')
+            .setDescription(`${client.user.username} just left **${guild.name}**! This server had ${guild.memberCount} members!`)
+            .setFooter({ text: `${client.user.username}`, iconURL: `${client.user.displayAvatarURL({ dynamic: false, png: 'true' })}` })
+            .setColor(config.color)
+            .setTimestamp()
+
+        client.channels.cache.get('982587950963515422').send({ embeds: [guildCreate] }).catch(error => {
+            return;
+        });
+    });
+    /* ----------------------------------------------------------------------------------- */
     client.on('guildMemberRemove', (member) => {
         joinLeave.findOne({ guildID: member.guild.id }, async (error, data) => {
             if (!data) {
@@ -299,7 +325,7 @@ module.exports = (client) => {
             } else {
                 const channel = member.client.channels.cache.get(data.leaveChannelID);
 
-                const leave = new MessageEmbed()
+                const leave = new EmbedBuilder()
                     .setTitle('Bye!')
                     .setDescription(`${member.user.tag} just left ${member.guild.name}! Wasn\'t cool enough for us anyway!`)
                     .setColor(config.color)
@@ -316,7 +342,7 @@ module.exports = (client) => {
             if (data) {
                 const modlogs = client.channels.cache.get(data.modlogsChannelID);
 
-                const guildMemberRemove = new MessageEmbed()
+                const guildMemberRemove = new EmbedBuilder()
                     .setTitle('Member left!')
                     .setDescription(`Member: ${member}\nName + Tag: ${member.user.tag}\nID: ${member.id}`)
                     .setThumbnail(`${member.user.displayAvatarURL({ dynamic: true })}`)

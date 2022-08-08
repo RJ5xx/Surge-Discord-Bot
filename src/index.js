@@ -1,22 +1,28 @@
-const { Client, Intents, Collection } = require('discord.js');
+const { Client, Collection, IntentsBitField, EmbedBuilder } = require('discord.js');
 const fs = require('fs');
+const Topgg = require('@top-gg/sdk');
 const config = require('./Database/config.json');
 
-const client = new Client({
-    intents: [
-        Intents.FLAGS.GUILDS,
-        Intents.FLAGS.GUILD_BANS,
-        Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS,
-        Intents.FLAGS.GUILD_INVITES,
-        Intents.FLAGS.GUILD_MESSAGES,
-        Intents.FLAGS.GUILD_MEMBERS,
-        Intents.FLAGS.GUILD_MESSAGE_REACTIONS
-    ]
-});
+require('dotenv').config();
+
+const myIntents = new IntentsBitField();
+myIntents.add(
+    IntentsBitField.Flags.Guilds,
+    IntentsBitField.Flags.GuildBans,
+    IntentsBitField.Flags.GuildEmojisAndStickers,
+    IntentsBitField.Flags.GuildInvites,
+    IntentsBitField.Flags.GuildMembers,
+    IntentsBitField.Flags.GuildMessages,
+    IntentsBitField.Flags.GuildMessageReactions,
+    IntentsBitField.Flags.MessageContent
+);
+
+const client = new Client({ intents: myIntents });
 
 client.commands = new Collection();
+client.topgg = new Topgg.Api(process.env.topggToken);
 
-require('./Systems/giveawaySystem.js')(client);
+// require('./Systems/giveawaySystem.js')(client);
 require('./logs.js')(client);
 
 const functions = fs.readdirSync('./src/Functions').filter(file => file.endsWith('.js'));
@@ -30,4 +36,4 @@ for (file of functions) {
 client.handleEvents(eventsFiles, './src/Events');
 client.handleCommands(commandFolders, './src/Commands');
 
-client.login(config.token);
+client.login(process.env.token);

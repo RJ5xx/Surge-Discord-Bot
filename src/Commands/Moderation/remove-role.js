@@ -1,8 +1,9 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, PermissionsBitField, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: false,
     data: new SlashCommandBuilder()
         .setName('remove-role')
         .setDescription('Remove a role from a user!')
@@ -20,23 +21,27 @@ module.exports = {
         const member = interaction.guild.members.cache.get(user.id) || await interaction.guild.members.fetch(user.id).catch(err => { });
         const role = interaction.options.getRole('role');
 
-        if (!interaction.member.permissions.has('MANAGE_ROLES'))
-        return interaction.editReply({ content: `${config.missingPermissions}` });
+        if (member.permissions.has(PermissionsBitField.Flags.ManageRoles)) {
+            return interaction.editReply({ content: `${config.missingPermissions}` });
+        }
 
-        if (interaction.guild.me.roles.highest.comparePositionTo(role) <= 0)
-            return interaction.editReply({ content: 'This role is higher than me and I can\'t remove it!' });
-
-        if (!role)
+        if (!role) {
             return interaction.reply({ content: 'I wasn\'t able to find that role!' });
+        }
 
-        if (!user.roles.cache.has(role.id))
+        if (!user.roles.cache.has(role.id)) {
             return interaction.editReply({ content: 'This user hasn\'t got that role!' });
+        }
+
+        if (interaction.guild.me.roles.highest.comparePositionTo(role) <= 0) {
+            return interaction.editReply({ content: 'This role is higher than me and I can\'t remove it!' });
+        }
 
         member.roles.remove(role.id).catch(error => {
             interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
-        const embed = new MessageEmbed()
+        const removeRoleEmbed = new EmbedBuilder()
             .setTitle(`${user.user.tag} has been taken a role from! ${config.successEmoji}`)
             .addFields(
                 { name: `Name`, value: `${user.user.tag}`, inline: true },
@@ -47,6 +52,6 @@ module.exports = {
             .setColor(config.color)
             .setTimestamp()
 
-        interaction.editReply({ embeds: [embed] });
+        interaction.editReply({ embeds: [removeRoleEmbed] });
     },
 };

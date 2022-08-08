@@ -1,8 +1,9 @@
-const { MessageEmbed } = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: false,
     data: new SlashCommandBuilder()
         .setName('role-info')
         .setDescription('Shows info about a role!')
@@ -15,7 +16,7 @@ module.exports = {
 
         const role = interaction.options.getRole('role');
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setColor(config.color)
             .setTimestamp()
             .setTitle(`${role.name}\'s Info!`)

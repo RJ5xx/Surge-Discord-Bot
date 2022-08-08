@@ -1,8 +1,9 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, PermissionsBitField, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: false,
     data: new SlashCommandBuilder()
         .setName('purge')
         .setDescription('Delete some messages!')
@@ -15,17 +16,19 @@ module.exports = {
 
         const amount = interaction.options.getInteger('amount');
 
-        if (!interaction.member.permissions.has('MANAGE_MESSAGES'))
+        if (member.permissions.has(PermissionsBitField.Flags.ManageMessages)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
+        }
 
-        if (amount <= 1 || amount > 100)
+        if (amount <= 1 || amount > 100) {
             return interaction.editReply({ content: 'You need to input a number between 1 and 99!' });
+        }
 
-        await interaction.channel.bulkDelete(amount, true).catch(error => {
+        interaction.channel.bulkDelete(amount, true).catch(error => {
             interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
-        const embed = new MessageEmbed()
+        const purgeEmbed = new EmbedBuilder()
             .setTitle(`${amount} messages deleted! ${config.successEmoji}`)
             .addFields(
                 { name: `Messages Deleted`, value: `${amount}`, inline: true },
@@ -36,6 +39,6 @@ module.exports = {
             .setColor(config.color)
             .setTimestamp()
 
-        interaction.channel.send({ embeds: [embed] });
+        interaction.channel.send({ embeds: [purgeEmbed] });
     },
 };

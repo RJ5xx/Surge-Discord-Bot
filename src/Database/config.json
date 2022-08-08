@@ -1,10 +1,7 @@
 {
-    "token": "", 
-    "clientID": "", 
-    "mongoURL": "",
-    "color": "",
-    "errorMessage": "",
-    "missingPermissions": "",
-    "successEmoji": "",
-    "errorEmoji": ""
+    "color": "#ED4245",
+    "errorMessage": "Oops, we ran into an error, please report this to one of the developers!",
+    "missingPermissions": "You do not have permissions to use this command!",
+    "successEmoji": "✅",
+    "errorEmoji": "❌"
 }

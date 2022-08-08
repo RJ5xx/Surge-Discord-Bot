@@ -1,8 +1,9 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed, MessageActionRow, MessageButton, MessageSelectMenu } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, ComponentType, EmbedBuilder, SelectMenuBuilder, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: false,
     data: new SlashCommandBuilder()
         .setName('help')
         .setDescription('Shows the main command!'),
@@ -10,9 +11,9 @@ module.exports = {
 
         await interaction.deferReply();
 
-        const selectMenu = new MessageActionRow()
+        const selectMenu = new ActionRowBuilder()
             .addComponents(
-                new MessageSelectMenu()
+                new SelectMenuBuilder()
                     .setCustomId('helpSelectMenu')
                     .setMinValues(1)
                     .setMaxValues(1)
@@ -57,36 +58,36 @@ module.exports = {
                     ]),
             );
 
-        const button = new MessageActionRow()
+        const button = new ActionRowBuilder()
             .addComponents(
-                new MessageButton()
+                new ButtonBuilder()
                     .setEmoji('🔗')
-                    .setStyle('LINK')
+                    .setStyle('Link')
                     .setLabel('Support')
-                    .setURL('https://discord.gg/mun838NkDj'),
+                    .setURL('https://discord.gg/mun838NkDj/'),
 
-                new MessageButton()
+                new ButtonBuilder()
                     .setEmoji('✅')
-                    .setStyle('LINK')
+                    .setStyle('Link')
                     .setLabel('Invite')
-                    .setURL('https://discord.com/api/oauth2/authorize?client_id=965205833724076082&permissions=8&scope=bot%20applications.commands'),
+                    .setURL('https://discord.com/api/oauth2/authorize?client_id=965205833724076082&permissions=8&scope=bot%20applications.commands/'),
 
-                new MessageButton()
-                    .setEmoji('↗️')
-                    .setStyle('LINK')
-                    .setLabel('Source Code')
-                    .setURL('https://github.com/Neutral75/Surge-Discord-Bot')
-
-                /* new MessageButton()
-                    .setEmoji('↗')
-                    .setStyle('LINK')
+                new ButtonBuilder()
+                    .setEmoji('💸')
+                    .setStyle('Link')
                     .setLabel('Vote')
-                    .setURL('https://top.gg/') */
+                    .setURL('https://top.gg/bot/982579470399586304/'),
+
+                new ButtonBuilder()
+                    .setEmoji('↗️')
+                    .setStyle('Link')
+                    .setLabel('Source Code')
+                    .setURL('https://github.com/Neutral75/Surge-Discord-Bot/')
             );
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle(`${client.user.username} Discord bot!`)
-            .setDescription(`${client.user.username} is a discord bot with many features which are all fun and easy to use! It has over 35 commands which are cool in every way! Choose a category in the section below to see the commands! ${client.user.username} is currently in ${client.guilds.cache.size} servers and monitoring ${interaction.client.guilds.cache.reduce((acc, g) => acc + g.memberCount, 0)} users!\n\nNote: Interaction with the menu will expire after **15** seconds!`)
+            .setDescription(`${client.user.username} is a discord bot with many features which are all fun and easy to use! It has over 40 commands which are cool in every way! Choose a category in the section below to see the commands! ${client.user.username} is currently in ${client.guilds.cache.size} servers and monitoring ${interaction.client.guilds.cache.reduce((acc, g) => acc + g.memberCount, 0)} users!\n\nNote: Interaction with the select menu will expire after **15** seconds! Giveaway commands are disabled until further notice!`)
             .setThumbnail(`${client.user.displayAvatarURL({ dynamic: true })}`)
             .setColor('#ED4245')
             .setFooter({ text: `${client.user.username}`, iconURL: `${client.user.displayAvatarURL({ dynamic: true })}` })
@@ -94,52 +95,52 @@ module.exports = {
 
         interaction.editReply({ embeds: [embed], components: [selectMenu, button] });
 
-        const ConfigurationEmbed = new MessageEmbed()
+        const ConfigurationEmbed = new EmbedBuilder()
             .setTitle('Configuration Commands')
             .setDescription('Set-join\nSet-leave\nSet-modlogs')
             .setFooter({ text: `${client.user.username} Commands` })
             .setTimestamp()
             .setColor(config.color)
 
-        const ModerationEmbed = new MessageEmbed()
+        const ModerationEmbed = new EmbedBuilder()
             .setTitle('Moderation Commands')
             .setDescription('Kick\nBan\nTimeout\nPurge\nChange-nickname\nRole-create\nRole-delete\nAdd-role\nRemove-role\nChannel-create\nChannel-delete')
             .setFooter({ text: `${client.user.username} Commands` })
             .setTimestamp()
             .setColor(config.color)
 
-        const InformationEmbed = new MessageEmbed()
+        const InformationEmbed = new EmbedBuilder()
             .setTitle('Information Commands')
             .setDescription('Help\nInvite\nVote\nBot-info\nUser-info\nUser-banner\nServer-info\nServer-banner\nRole-info\nChannel-info')
             .setFooter({ text: `${client.user.username} Commands` })
             .setTimestamp()
             .setColor(config.color)
 
-        const GiveawayEmbed = new MessageEmbed()
+        const GiveawayEmbed = new EmbedBuilder()
             .setTitle('Giveaway Commands')
             .setDescription('Giveaway\n> Giveaway start\nGiveaway actions\n- Pause\n- Unpause\n- End\n- Delete\n- Reroll')
             .setFooter({ text: `${client.user.username} Commands` })
             .setTimestamp()
             .setColor(config.color)
 
-        const AnimalsEmbed = new MessageEmbed()
+        const AnimalsEmbed = new EmbedBuilder()
             .setTitle('Animals Commands')
-            .setDescription('Cat\nDog\nBird\nBear\nFox\nKoala\nPanda')
+            .setDescription('Cat\nDog\nBird\nFox\nKangaroo\nKoala\nPanda\nRed-panda\nRaccoon\nWhale')
             .setFooter({ text: `${client.user.username} Commands` })
             .setTimestamp()
             .setColor(config.color)
 
-        const FunEmbed = new MessageEmbed()
+        const FunEmbed = new EmbedBuilder()
             .setTitle('Fun Commands')
-            .setDescription('Say\nMeme\n8ball\nCoinflip\nDiceroll')
+            .setDescription('Say\nMeme\nCoinflip\nDiceroll')
             .setFooter({ text: `${client.user.username} Commands` })
             .setTimestamp()
             .setColor(config.color)
 
         const collector = interaction.channel.createMessageComponentCollector({
-            time: 15000,
-            componentType: 'SELECT_MENU'
-        })
+            componentType: ComponentType.SelectMenu,
+            time: 15000
+        });
 
         collector.on('collect', async (collected) => {
             const value = collected.values[0]
@@ -162,6 +163,6 @@ module.exports = {
             if (value === 'fun') {
                 collected.reply({ embeds: [FunEmbed], ephemeral: true });
             }
-        })
+        });
     },
 };

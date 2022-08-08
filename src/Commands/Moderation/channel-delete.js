@@ -1,8 +1,9 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, PermissionsBitField, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: false,
     data: new SlashCommandBuilder()
         .setName('channel-delete')
         .setDescription('Delete a channel!')
@@ -15,14 +16,15 @@ module.exports = {
 
         const channel = interaction.options.getChannel('channel');
 
-        if (!interaction.member.permissions.has('MANAGE_CHANNELS'))
+        if (member.permissions.has(PermissionsBitField.Flags.ManageChannels)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
+        }
 
         interaction.guild.channels.delete(`${channel.id}`).catch(error => {
             interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
-        const embed = new MessageEmbed()
+        const channelDeleteEmbed = new EmbedBuilder()
             .setTitle(`#${channel.name} has been deleted! ${config.successEmoji}`)
             .addFields(
                 { name: `Channel`, value: `${channel}`, inline: true },
@@ -32,6 +34,6 @@ module.exports = {
             .setColor(config.color)
             .setTimestamp()
 
-        interaction.editReply({ embeds: [embed] });
+        interaction.editReply({ embeds: [channelDeleteEmbed] });
     },
 };

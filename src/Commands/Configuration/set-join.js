@@ -1,8 +1,10 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const joinLeave = require('../../Schemas/joinLeaveModel.js')
+const { SlashCommandBuilder } = require('discord.js');
+const joinLeave = require('../../Schemas/joinLeaveModel.js');
 const config = require('../../Database/config.json');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: false,
     data: new SlashCommandBuilder()
         .setName('set-join')
         .setDescription('Set the join channel for this server!')

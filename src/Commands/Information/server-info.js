@@ -1,8 +1,9 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: false,
     data: new SlashCommandBuilder()
         .setName('server-info')
         .setDescription('Shows the servers information!'),
@@ -10,7 +11,7 @@ module.exports = {
 
         await interaction.deferReply();
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle(`${interaction.guild.name}\'s Information`)
             .setThumbnail(interaction.guild.iconURL({ dynamic: true }))
             .setColor(config.color)

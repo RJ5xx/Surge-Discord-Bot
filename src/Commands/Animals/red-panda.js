@@ -1,29 +1,30 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 const axios = require('axios');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: true,
     data: new SlashCommandBuilder()
-        .setName('bear')
-        .setDescription('Shows a random bear!'),
+        .setName('red-panda')
+        .setDescription('Shows a random red panda!'),
     async execute(interaction) {
 
         await interaction.deferReply();
 
-        const url = "https://some-random-api.ml/animal/bear";
+        const url = "https://some-random-api.ml/animal/red_panda";
 
         axios
             .get(url)
             .then((res) => {
-                const bearEmbed = new MessageEmbed()
+                const redPandaEmbed = new EmbedBuilder()
                     .setColor(config.color)
-                    .setTitle(`Bear Image!`)
+                    .setTitle(`Red panda Image!`)
                     .setImage(res.data.image)
                     .setFooter({ text: 'Aww, how cute' })
                     .setTimestamp()
 
-                interaction.editReply({ embeds: [bearEmbed] });
+                interaction.editReply({ embeds: [redPandaEmbed] });
             }).catch(() => {
                 interaction.editReply({ content: 'Image not avaibale, try again later!' });
             })

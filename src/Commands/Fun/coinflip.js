@@ -1,9 +1,10 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const wait = require('util').promisify(setTimeout);
 const config = require('../../Database/config.json');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: false,
     data: new SlashCommandBuilder()
         .setName('coinflip')
         .setDescription('Flip a gold coin!'),
@@ -13,11 +14,11 @@ module.exports = {
 
         const random = Math.floor(Math.random() * 100);
 
-        const coinFlipping = new MessageEmbed()
+        const coinFlipping = new EmbedBuilder()
             .setDescription(`Flipping the coin... :coin:`)
-            .setColor('RANDOM');
+            .setColor(config.color);
 
-        const coinFlipped = new MessageEmbed()
+        const coinFlipped = new EmbedBuilder()
             .setTitle(`Coin flipped!`)
             .setColor(config.color)
 

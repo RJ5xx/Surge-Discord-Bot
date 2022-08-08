@@ -1,8 +1,9 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: false,
     data: new SlashCommandBuilder()
         .setName('say')
         .setDescription('Make me say something!')
@@ -15,7 +16,7 @@ module.exports = {
 
         const content = interaction.options.getString('content');
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setDescription(`${content}\n\n- ${interaction.user.username}`)
             .setColor(config.color)
 

@@ -1,8 +1,9 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, PermissionsBitField, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: false,
     data: new SlashCommandBuilder()
         .setName('kick')
         .setDescription('Kick a user from the guild!')
@@ -20,23 +21,27 @@ module.exports = {
         const member = interaction.guild.members.cache.get(user.id) || await interaction.guild.members.fetch(user.id).catch(err => { });
         const reason = interaction.options.getString('reason');
 
-        if (!interaction.member.permissions.has('KICK_MEMBERS'))
+        if (member.permissions.has(PermissionsBitField.Flags.KickMembers)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
+        }
 
-        if (!member)
+        if (!member) {
             return interaction.editReply({ content: 'I wasn\'t able to find that user!' });
+        }
 
-        if (!member.kickable || member.user.id === client.user.id)
+        if (!member.kickable || member.user.id === client.user.id) {
             return interaction.editReply({ content: 'I couldn\'t kick that user, or maybe it was me!' });
+        }
 
-        if (interaction.member.roles.highest.position <= member.roles.highest.position)
+        if (interaction.member.roles.highest.position <= member.roles.highest.position) {
             return interaction.editReply({ content: 'I couldn\'t kick this user because the users role might be higher than yours!' });
+        }
 
         member.kick({ reason }).catch(error => {
             interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
-        const embed = new MessageEmbed()
+        const kickEmbed = new EmbedBuilder()
             .setTitle(`${member.user.tag} had been kicked! ${config.successEmoji}`)
             .addFields(
                 { name: `Name`, value: `${member.user.tag}`, inline: true },
@@ -47,6 +52,6 @@ module.exports = {
             .setColor(config.color)
             .setTimestamp()
 
-        interaction.editReply({ embeds: [embed] });
+        interaction.editReply({ embeds: [kickEmbed] });
     },
 };

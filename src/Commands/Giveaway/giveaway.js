@@ -1,9 +1,10 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 const ms = require('ms');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: false,
     data: new SlashCommandBuilder()
         .setName('giveaway')
         .setDescription('Create a giveaway!')
@@ -42,17 +43,17 @@ module.exports = {
                 .setRequired(true))),
     async execute(interaction, client) {
 
-        await interaction.deferReply({ ephemeral: true });
+        /* await interaction.deferReply({ ephemeral: true });
 
         if (!interaction.member.permissions.has('MANAGE_MESSAGES'))
             return interaction.editReply({ content: 'You don\'t have permissions to use this command!' });
 
         const sub = interaction.options.getSubcommand();
 
-        const errorEmbed = new MessageEmbed()
+        const errorEmbed = new EmbedBuilder()
             .setColor('RED')
 
-        const successEmbed = new MessageEmbed()
+        const successEmbed = new EmbedBuilder()
             .setColor('GREEN')
 
         switch (sub) {
@@ -155,6 +156,6 @@ module.exports = {
             default: {
                 console.log('An error occured in the giveaway command!');
             }
-        }
+        } */
     },
 };

@@ -1,9 +1,10 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 const axios = require('axios');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: false,
     data: new SlashCommandBuilder()
         .setName('fox')
         .setDescription('Shows a random fox!'),
@@ -16,7 +17,7 @@ module.exports = {
         axios
             .get(url)
             .then((res) => {
-                const foxEmbed = new MessageEmbed()
+                const foxEmbed = new EmbedBuilder()
                     .setColor(config.color)
                     .setTitle(`Fox Image!`)
                     .setImage(res.data.image)

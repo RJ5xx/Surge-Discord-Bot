@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, PermissionsBitField, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 const colors = [
     "BLACK",
@@ -12,9 +11,11 @@ const colors = [
     "RED",
     "WHITE",
     "YELLOW"
-]
+];
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: true,
     data: new SlashCommandBuilder()
         .setName('role-create')
         .setDescription('Create a role!')
@@ -28,8 +29,9 @@ module.exports = {
         const name = interaction.options.getString('name');
         const randomColor = colors[Math.floor((Math.random() * 11) + 0)];
 
-        if (!interaction.member.permissions.has('MANAGE_ROLES'))
+        if (member.permissions.has(PermissionsBitField.Flags.ManageRoles)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
+        }
 
         interaction.guild.roles.create({
             name: `${name}`,
@@ -38,7 +40,7 @@ module.exports = {
             interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
-        const embed = new MessageEmbed()
+        const roleCreateEmbed = new EmbedBuilder()
             .setTitle(`@${name} has been created! ${config.successEmoji}`)
             .addFields(
                 { name: `Role Name`, value: `${name}`, inline: true },
@@ -48,6 +50,6 @@ module.exports = {
             .setColor(config.color)
             .setTimestamp()
 
-        interaction.editReply({ embeds: [embed] });
+        interaction.editReply({ embeds: [roleCreateEmbed] });
     },
 };

@@ -1,8 +1,9 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, PermissionsBitField, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: false,
     data: new SlashCommandBuilder()
         .setName('add-role')
         .setDescription('Add a role to a user!')
@@ -20,23 +21,27 @@ module.exports = {
         const member = interaction.guild.members.cache.get(user.id) || await interaction.guild.members.fetch(user.id).catch(err => { });
         const role = interaction.options.getRole('role');
 
-        if (!interaction.member.permissions.has('MANAGE_ROLES'))
+        if (member.permissions.has(PermissionsBitField.Flags.ManageRoles)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
+        }
 
-        if (interaction.guild.me.roles.highest.comparePositionTo(role) <= 0)
-            return interaction.editReply({ content: 'This role is higher than me and I can\'t add it!' });
-
-        if (!role)
+        if (!role) {
             return interction.editReply({ content: 'I wasn\'t able to find that role!' });
+        }
 
-        if (user.roles.cache.has(role.id))
+        if (user.roles.cache.has(role.id)) {
             return interaction.editReply({ content: 'This user already has that role!' });
+        }
+
+        if (interaction.guild.me.roles.highest.comparePositionTo(role) <= 0) {
+            return interaction.editReply({ content: 'This role is higher than me and I can\'t add it!' });
+        }
 
         member.roles.add(role.id).catch(error => {
             interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
-        const embed = new MessageEmbed()
+        const addRoleEmbed = new EmbedBuilder()
             .setTitle(`${user.user.tag} has been added a role! ${config.successEmoji}`)
             .addFields(
                 { name: `Name`, value: `${user.user.tag}`, inline: true },
@@ -47,6 +52,6 @@ module.exports = {
             .setColor(config.color)
             .setTimestamp()
 
-        interaction.editReply({ embeds: [embed] });
+        interaction.editReply({ embeds: [addRoleEmbed] });
     },
 };

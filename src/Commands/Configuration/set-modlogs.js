@@ -1,8 +1,10 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const modlogs = require('../../Schemas/modlogsModel.js')
+const { SlashCommandBuilder } = require('discord.js');
+const modlogs = require('../../Schemas/modlogsModel.js');
 const config = require('../../Database/config.json');
 
 module.exports = {
+    ownerOnly: false,
+    voteOnly: false,
     data: new SlashCommandBuilder()
         .setName('set-modlogs')
         .setDescription('Set the modlogs channel for this server!')
