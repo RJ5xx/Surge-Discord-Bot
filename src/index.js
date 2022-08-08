@@ -22,7 +22,7 @@ const client = new Client({ intents: myIntents });
 client.commands = new Collection();
 client.topgg = new Topgg.Api(process.env.topggToken);
 
-// require('./Systems/giveawaySystem.js')(client);
+//require('./Systems/giveawaySystem.js')(client);
 require('./logs.js')(client);
 
 const functions = fs.readdirSync('./src/Functions').filter(file => file.endsWith('.js'));

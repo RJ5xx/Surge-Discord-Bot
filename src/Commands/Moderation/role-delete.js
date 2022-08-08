@@ -16,7 +16,7 @@ module.exports = {
 
         const role = interaction.options.getRole('role');
 
-        if (!interaction.user.permissions.has(PermissionsBitField.Flags.ManageRoles)) {
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageRoles)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
         }
 

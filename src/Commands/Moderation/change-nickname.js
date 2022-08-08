@@ -21,7 +21,7 @@ module.exports = {
         const member = interaction.guild.members.cache.get(user.id) || await interaction.guild.members.fetch(user.id).catch(err => { });
         const nickname = interaction.options.getString('nickname');
 
-        if (!interaction.user.permissions.has(PermissionsBitField.Flags.ChangeNickname)) {
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ChangeNickname)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
         }
 

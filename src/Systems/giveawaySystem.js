@@ -1,4 +1,4 @@
-/* const { GiveawaysManager } = require('discord-giveaways');
+const { GiveawaysManager } = require('discord-giveaways');
 const giveawayModel = require('../Schemas/giveawayModel.js');
 
 module.exports = (client) => {
@@ -33,4 +33,4 @@ module.exports = (client) => {
         }
     });
     client.giveawaysManager = manager;
-}; */
+};

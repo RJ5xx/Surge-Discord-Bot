@@ -1,4 +1,4 @@
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder, PermissionsBitField, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 const ms = require('ms');
 
@@ -45,16 +45,17 @@ module.exports = {
 
         /* await interaction.deferReply({ ephemeral: true });
 
-        if (!interaction.member.permissions.has('MANAGE_MESSAGES'))
-            return interaction.editReply({ content: 'You don\'t have permissions to use this command!' });
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) {
+            return interaction.editReply({ content: `${config.missingPermissions}` });
+        }
 
         const sub = interaction.options.getSubcommand();
 
         const errorEmbed = new EmbedBuilder()
-            .setColor('RED')
+            .setColor('#ED4245')
 
         const successEmbed = new EmbedBuilder()
-            .setColor('GREEN')
+            .setColor('#57F287')
 
         switch (sub) {
             case "start": {
