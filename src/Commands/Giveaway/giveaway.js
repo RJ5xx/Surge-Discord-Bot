@@ -43,7 +43,7 @@ module.exports = {
                 .setRequired(true))),
     async execute(interaction, client) {
 
-        /* await interaction.deferReply({ ephemeral: true });
+        await interaction.deferReply({ ephemeral: true });
 
         if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
@@ -157,6 +157,6 @@ module.exports = {
             default: {
                 console.log('An error occured in the giveaway command!');
             }
-        } */
+        }
     },
 };
