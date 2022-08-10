@@ -21,7 +21,7 @@ module.exports = {
 
         console.log(guildDetails) */
 
-        if (!config.mongoURL) return;
+        if (!process.env.mongoURL) return;
 
         mongoose.connect(process.env.mongoURL, {
             useNewUrlParser: true,
