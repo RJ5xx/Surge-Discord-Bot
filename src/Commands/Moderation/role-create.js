@@ -1,16 +1,13 @@
 const { EmbedBuilder, PermissionsBitField, SlashCommandBuilder } = require('discord.js');
 const config = require('../../Database/config.json');
 const colors = [
-    "BLACK",
-    "BLUE",
-    "BLURPLE",
-    "GREEN",
-    "GREY",
-    "ORANGE",
-    "PURPLE",
-    "RED",
-    "WHITE",
-    "YELLOW"
+    "#000000",
+    "#5865F2",
+    "#57F287",,
+    "#EB459E",
+    "#ED4245",
+    "#FFFFFF",
+    "#FEE75C"
 ];
 
 module.exports = {
