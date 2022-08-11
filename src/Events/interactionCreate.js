@@ -8,7 +8,7 @@ module.exports = {
         if (!command) return;
 
         if (command['ownerOnly'] == true) {
-            if (!interaction.member.id == '901551680619966514') {
+            if (interaction.member.id !== '901551680619966514') {
                 return interaction.reply({ content: 'Sorry, only the bot owners can run this command!', ephemeral: true });
             };
         };
