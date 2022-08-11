@@ -13,8 +13,13 @@ module.exports = {
             };
         };
 
-        if (command['voteOnly'] == true) {
+        if (command['premiumOnly'] == true) {
+            if (interaction.member.id !== '') {
+                return interaction.reply({ content: 'Sorry, only the premium users can run this command!', ephemeral: true });
+            };
+        };
 
+        if (command['voteOnly'] == true) {
             vote = await client.topgg.hasVoted(interaction.user.id);
 
             if (!vote) {
