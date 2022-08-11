@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { PermissionsBitField, SlashCommandBuilder } = require('discord.js');
 const modlogs = require('../../Schemas/modlogsModel.js');
 const config = require('../../Database/config.json');
 
@@ -17,8 +17,9 @@ module.exports = {
 
         const channel = interaction.options.getChannel('channel');
 
-        if (!interaction.member.permissions.has('MANAGE_MESSAGES'))
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
+        }
 
         modlogs.findOne({ guildID: interaction.guild.id }, async (error, data) => {
             if (data) {

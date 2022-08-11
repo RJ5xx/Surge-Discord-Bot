@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { PermissionsBitField, SlashCommandBuilder } = require('discord.js');
 const joinLeave = require('../../Schemas/joinLeaveModel.js');
 const config = require('../../Database/config.json');
 
@@ -17,8 +17,9 @@ module.exports = {
 
         const channel = interaction.options.getChannel('channel');
 
-        if (!interaction.member.permissions.has('MANAGE_MESSAGES'))
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
+        }
 
         joinLeave.findOne({ guildID: interaction.guild.id }, async (error, data) => {
             if (data) {
