@@ -32,7 +32,7 @@ module.exports = {
         }
 
         member.timeout(msTime, reason).catch(error => {
-            interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
+            return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
         const timeoutEmbed = new EmbedBuilder()

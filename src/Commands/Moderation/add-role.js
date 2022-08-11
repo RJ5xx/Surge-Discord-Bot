@@ -34,7 +34,7 @@ module.exports = {
         }
 
         member.roles.add(role.id).catch(error => {
-            interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
+            return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
         const addRoleEmbed = new EmbedBuilder()

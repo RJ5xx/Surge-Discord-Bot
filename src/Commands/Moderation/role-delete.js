@@ -21,7 +21,7 @@ module.exports = {
         }
 
         interaction.guild.roles.delete(`${role.id}`).catch(error => {
-            interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
+            return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
         const roleDeleteEmbed = new EmbedBuilder()

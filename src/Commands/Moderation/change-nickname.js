@@ -26,7 +26,7 @@ module.exports = {
         }
 
         member.setNickname(nickname).catch(error => {
-            interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
+            return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
         const changeNicknameEmbed = new EmbedBuilder()

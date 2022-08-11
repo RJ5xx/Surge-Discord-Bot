@@ -21,7 +21,7 @@ module.exports = {
         }
 
         interaction.guild.channels.delete(`${channel.id}`).catch(error => {
-            interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
+            return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
         const channelDeleteEmbed = new EmbedBuilder()

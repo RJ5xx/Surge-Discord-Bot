@@ -25,7 +25,7 @@ module.exports = {
         }
 
         interaction.channel.bulkDelete(amount, true).catch(error => {
-            interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
+            return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
         const purgeEmbed = new EmbedBuilder()

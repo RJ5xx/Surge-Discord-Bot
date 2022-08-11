@@ -34,7 +34,7 @@ module.exports = {
         }
 
         member.roles.remove(role.id).catch(error => {
-            interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
+            return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
         const removeRoleEmbed = new EmbedBuilder()

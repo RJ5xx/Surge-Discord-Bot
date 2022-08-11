@@ -22,7 +22,7 @@ module.exports = {
         }
 
         member.setNickname(user.username).catch(error => {
-            interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
+            return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
         const resetNicknameEmbed = new EmbedBuilder()

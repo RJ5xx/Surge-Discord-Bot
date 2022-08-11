@@ -34,7 +34,7 @@ module.exports = {
             name: `${name}`,
             color: `${randomColor}`
         }).catch(error => {
-            interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
+            return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
         const roleCreateEmbed = new EmbedBuilder()
