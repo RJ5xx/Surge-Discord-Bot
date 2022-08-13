@@ -99,9 +99,9 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setTitle(`${client.user.username} Discord bot!`)
-            .setDescription(`${client.user.username} is a discord bot with many features which are all fun and easy to use! It has over 40 commands which are cool in every way! Choose a category in the section below to see the commands! ${client.user.username} is currently in ${client.guilds.cache.size} servers and monitoring ${interaction.client.guilds.cache.reduce((acc, g) => acc + g.memberCount, 0)} users!\n\nNote: Interaction with the select menu will expire after **45** seconds!\n\nNeutral#4231 - Developer of Surge`)
+            .setDescription(`${client.user.username} is a discord bot with many features which are all fun and easy to use! It has over 40 commands which are cool in every way! Choose a category in the section below to see the commands! ${client.user.username} is currently in ${client.guilds.cache.size} servers and monitoring ${interaction.client.guilds.cache.reduce((acc, g) => acc + g.memberCount, 0)} users!\n\nNote: Interaction with the select menu will expire after **45** seconds!\n\nNeutral#4231 & LSIS#2572 - Founders of Surge`)
             .setThumbnail(`${client.user.displayAvatarURL({ dynamic: true })}`)
-            .setColor('#ED4245')
+            .setColor(config.color)
             .setFooter({ text: `${client.user.username}`, iconURL: `${client.user.displayAvatarURL({ dynamic: true })}` })
             .setTimestamp()
 
