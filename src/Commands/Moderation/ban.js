@@ -29,12 +29,16 @@ module.exports = {
             return interaction.editReply({ content: 'I wasn\'t able to find that user!' });
         }
 
-        if (!member.bannable || member.user.id === client.user.id) {
-            return interaction.editReply({ content: 'I couldn\'t ban that user, or maybe it was me!' });
+        if (client.roles.highest.position <= member.roles.highest.position) {
+            return interaction.editReply({ content: 'I couldn\'t ban this user because the users role might be higher than mine!' });
         }
 
         if (interaction.member.roles.highest.position <= member.roles.highest.position) {
             return interaction.editReply({ content: 'I couldn\'t ban this user because the users role might be higher than yours!' });
+        }
+
+        if (!member.bannable || member.user.id === client.user.id) {
+            return interaction.editReply({ content: 'I couldn\'t ban that user, or maybe it was me! Make sure my roles are higher than the users!' });
         }
 
         member.ban({ reason }).catch(error => {
