@@ -196,5 +196,9 @@ module.exports = {
                 collected.reply({ embeds: [ownerEmbed], ephemeral: true });
             }
         });
+
+        /* collector.on('end', async(collected) => {
+
+        }); */
     },
 };
