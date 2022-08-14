@@ -20,7 +20,7 @@ module.exports = {
                 const dogEmbed = new EmbedBuilder()
                     .setColor(config.color)
                     .setTitle(`Dog Image!`)
-                    .setImage(res.data.image)
+                    .setImage(res.data.link)
                     .setFooter({ text: 'Aww, how cute' })
                     .setTimestamp()
 

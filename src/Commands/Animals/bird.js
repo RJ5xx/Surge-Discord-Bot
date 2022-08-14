@@ -20,7 +20,7 @@ module.exports = {
                 const birdEmbed = new EmbedBuilder()
                     .setColor(config.color)
                     .setTitle(`Bird Image!`)
-                    .setImage(res.data.image)
+                    .setImage(res.data.link)
                     .setFooter({ text: 'Aww, how cute' })
                     .setTimestamp()
 

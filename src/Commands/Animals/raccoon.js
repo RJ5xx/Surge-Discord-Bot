@@ -20,7 +20,7 @@ module.exports = {
                 const raccoonEmbed = new EmbedBuilder()
                     .setColor(config.color)
                     .setTitle(`Raccoon Image!`)
-                    .setImage(res.data.image)
+                    .setImage(res.data.link)
                     .setFooter({ text: 'Aww, how cute' })
                     .setTimestamp()
 

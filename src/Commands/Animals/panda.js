@@ -20,7 +20,7 @@ module.exports = {
                 const pandaEmbed = new EmbedBuilder()
                     .setColor(config.color)
                     .setTitle(`Panda Image!`)
-                    .setImage(res.data.image)
+                    .setImage(res.data.link)
                     .setFooter({ text: 'Aww, how cute' })
                     .setTimestamp()
 

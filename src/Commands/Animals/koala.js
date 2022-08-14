@@ -20,7 +20,7 @@ module.exports = {
                 const koalaEmbed = new EmbedBuilder()
                     .setColor(config.color)
                     .setTitle(`Koala Image!`)
-                    .setImage(res.data.image)
+                    .setImage(res.data.link)
                     .setFooter({ text: 'Aww, how cute' })
                     .setTimestamp()
 

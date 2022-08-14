@@ -20,7 +20,7 @@ module.exports = {
                 const foxEmbed = new EmbedBuilder()
                     .setColor(config.color)
                     .setTitle(`Fox Image!`)
-                    .setImage(res.data.image)
+                    .setImage(res.data.link)
                     .setFooter({ text: 'Aww, how cute' })
                     .setTimestamp()
 
