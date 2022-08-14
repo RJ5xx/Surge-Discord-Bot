@@ -7,12 +7,12 @@ module.exports = {
     voteOnly: false,
     data: new SlashCommandBuilder()
         .setName('panda')
-        .setDescription('Shows a random panda'),
+        .setDescription('Shows a random panda!'),
     async execute(interaction) {
 
         await interaction.deferReply();
 
-        const url = "https://some-random-api.ml/animal/panda";
+        const url = "https://some-random-api.ml/img/panda";
 
         axios
             .get(url)

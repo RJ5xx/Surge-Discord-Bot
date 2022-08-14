@@ -12,7 +12,7 @@ module.exports = {
 
         await interaction.deferReply();
 
-        const url = "https://some-random-api.ml/animal/fox";
+        const url = "https://some-random-api.ml/img/fox";
 
         axios
             .get(url)

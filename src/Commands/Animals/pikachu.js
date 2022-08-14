@@ -6,25 +6,25 @@ module.exports = {
     ownerOnly: false,
     voteOnly: false,
     data: new SlashCommandBuilder()
-        .setName('koala')
-        .setDescription('Shows a random koala!'),
+        .setName('pikachu')
+        .setDescription('Shows a random pikachu!'),
     async execute(interaction) {
 
         await interaction.deferReply();
 
-        const url = "https://some-random-api.ml/img/koala";
+        const url = "https://some-random-api.ml/img/pikachu";
 
         axios
             .get(url)
             .then((res) => {
-                const koalaEmbed = new EmbedBuilder()
+                const pikachuEmbed = new EmbedBuilder()
                     .setColor(config.color)
-                    .setTitle(`Koala Image!`)
+                    .setTitle(`Pikachu Image!`)
                     .setImage(res.data.image)
                     .setFooter({ text: 'Aww, how cute' })
                     .setTimestamp()
 
-                interaction.editReply({ embeds: [koalaEmbed] });
+                interaction.editReply({ embeds: [pikachuEmbed] });
             }).catch(() => {
                 interaction.editReply({ content: 'Image not avaibale, try again later!' });
             })
