@@ -137,7 +137,7 @@ module.exports = {
 
         const animalsEmbed = new EmbedBuilder()
             .setTitle('Animals Commands')
-            .setDescription('Cat\nDog\nBird\nFox\nKangaroo\nKoala\nPanda\nRed-panda\nRaccoon\nWhale')
+            .setDescription('Cat\nDog\nBird\nFox\nKangaroo\nKoala\nPanda\nRed-panda\nPikachu\nRaccoon\nWhale')
             .setFooter({ text: `${client.user.username} Commands` })
             .setTimestamp()
             .setColor(config.color)
