@@ -15,9 +15,9 @@ module.exports = {
         await interaction.deferReply();
 
         const user = interaction.options.getMember('user');
-        const member = interaction.guild.members.cache.get(user.id) || await interaction.guild.members.fetch(user.id).catch(err => { });
+        const member = interaction.guild.members.cache.get(user.id) || await interaction.guild.members.fetch(user.id).catch(error => { });
 
-        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ChangeNickname)) {
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageNickname)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
         }
 
@@ -31,7 +31,7 @@ module.exports = {
                 { name: `Name`, value: `${member.user.tag}`, inline: true },
                 { name: `Server`, value: `${interaction.guild.name}`, inline: true },
                 { name: `Moderator`, value: `${interaction.member.user.tag}`, inline: true },
-                { name: `New Nickname`, value: `${member.username}`, inline: true },
+                { name: `New Nickname`, value: `${member.user.username}`, inline: true },
             )
             .setColor(config.color)
             .setTimestamp()
