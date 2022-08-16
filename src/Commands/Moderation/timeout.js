@@ -31,10 +31,6 @@ module.exports = {
             return interaction.editReply({ content: `${config.missingPermissions}` });
         }
 
-        if (client.roles.highest.position <= member.roles.highest.position) {
-            return interaction.editReply({ content: 'I couldn\'t timeout this user because the users role might be higher than mine!' });
-        }
-
         member.timeout(msTime, reason).catch(error => {
             return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
