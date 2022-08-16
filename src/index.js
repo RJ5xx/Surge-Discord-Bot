@@ -2,42 +2,6 @@ const { Client, Collection, IntentsBitField } = require('discord.js');
 const fs = require('fs');
 const Topgg = require('@top-gg/sdk');
 const config = require('./Database/config.json');
-const express = require('express');
-const path = require('path');
-
-const app = module.exports = express();
-
-app.use(express.static(path.join(__dirname, '/Website')));
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, './Website'));
-
-app.get('/', (req, res) => {
-    res.render('home.ejs', {
-        guildCount: client.guilds.cache.size,
-        userCount: client.guilds.cache.reduce((c, g) => c + g.memberCount, 0)
-    });
-});
-
-app.get('/home', (req, res) => {
-    res.render('home.ejs', {
-        guildCount: client.guilds.cache.size,
-        userCount: client.guilds.cache.reduce((c, g) => c + g.memberCount, 0)
-    });
-});
-
-app.get('/invite', (req, res) => {
-    res.sendFile(path.join(__dirname + 'invite.html'));
-});
-
-app.get('/discord', (req, res) => {
-    res.sendFile(path.join(__dirname + 'discord.html'));
-});
-
-app.get('/vote', (req, res) => {
-    res.sendFile(path.join(__dirname + 'vote.html'));
-});
-
-app.listen(3000)
 
 require('dotenv').config();
 
