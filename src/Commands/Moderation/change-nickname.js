@@ -25,6 +25,10 @@ module.exports = {
             return interaction.editReply({ content: `${config.missingPermissions}` });
         }
 
+        if (!client.member.permissions.has(PermissionsBitField.Flags.ManageNicknames)) {
+            return interaction.editReply({ content: 'I do not have permission to do that!' });
+        }
+
         member.setNickname(nickname).catch(error => {
             return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
