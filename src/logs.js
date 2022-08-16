@@ -335,7 +335,7 @@ module.exports = (client) => {
     client.on('guildCreate', (guild) => {
         const guildCreate = new EmbedBuilder()
             .setTitle('Server joined!')
-            .setDescription(`${client.user.username} just joined **${guild.name}**! This server has ${guild.memberCount} members!`)
+            .setDescription(`${client.user.username} just joined **${guild.name}**! This server has ${guild.memberCount} members!Their ID is ${guild.id}!`)
             .setFooter({ text: `${client.user.username}`, iconURL: `${client.user.displayAvatarURL({ dynamic: false, png: 'true' })}` })
             .setColor(config.color)
             .setTimestamp()
@@ -348,7 +348,7 @@ module.exports = (client) => {
     client.on('guildDelete', (guild) => {
         const guildCreate = new EmbedBuilder()
             .setTitle('Server left!')
-            .setDescription(`${client.user.username} just left **${guild.name}**! This server had ${guild.memberCount} members!`)
+            .setDescription(`${client.user.username} just left **${guild.name}**! This server had ${guild.memberCount} members!\nTheir ID is ${guild.id}!`)
             .setFooter({ text: `${client.user.username}`, iconURL: `${client.user.displayAvatarURL({ dynamic: false, png: 'true' })}` })
             .setColor(config.color)
             .setTimestamp()
