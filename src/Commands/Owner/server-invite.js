@@ -16,9 +16,11 @@ module.exports = {
 
         const id = interaction.options.getString('id');
         const guild = client.guilds.cache.get(id);
-        const channel = guild.channels.cache.find(channel => channel.type === ChannelType.GuildText);
+        const channel = guild.channels.cache.find(channel => channel.type === ChannelType.GuildText).catch(error => {
+            return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
+        });
         const invite = await channel.createInvite({ maxAge: 0 }).catch(error => {
-
+            return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
         const serverInviteEmbed = new EmbedBuilder()
