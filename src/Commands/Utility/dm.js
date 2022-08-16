@@ -13,7 +13,7 @@ module.exports = {
         .addStringOption((option) => option.setName('content')
             .setDescription('What do you want me to DM?')
             .setRequired(true)),
-    async execute(interaction) {
+    async execute(interaction, client) {
 
         await interaction.deferReply();
 
