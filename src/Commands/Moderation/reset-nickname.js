@@ -31,7 +31,7 @@ module.exports = {
                 { name: `Name`, value: `${member.user.tag}`, inline: true },
                 { name: `Server`, value: `${interaction.guild.name}`, inline: true },
                 { name: `Moderator`, value: `${interaction.member.user.tag}`, inline: true },
-                { name: `New Nickname`, value: `${nickname}`, inline: true },
+                { name: `New Nickname`, value: `${member.username}`, inline: true },
             )
             .setColor(config.color)
             .setTimestamp()
