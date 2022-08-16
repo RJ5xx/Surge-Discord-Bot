@@ -20,6 +20,10 @@ module.exports = {
         const content = interaction.options.getString('content');
         const user = interaction.options.getUser('user');
 
+        if (user.id == client.user.id) {
+            return interaction.editReply({ content: 'I cannot DM myself!' });
+        }
+
         user.send(`${content}\n\nFrom - ${interaction.user.username}`).catch(error => {
             return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });

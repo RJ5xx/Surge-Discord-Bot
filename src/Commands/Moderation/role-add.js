@@ -5,13 +5,13 @@ module.exports = {
     ownerOnly: false,
     voteOnly: false,
     data: new SlashCommandBuilder()
-        .setName('remove-role')
-        .setDescription('Remove a role from a user!')
+        .setName('role-add')
+        .setDescription('Add a role to a user!')
         .addUserOption((option) => option.setName('user')
-            .setDescription('Who do you want to take the role from?')
+            .setDescription('Who do you want to give the role to?')
             .setRequired(true))
         .addRoleOption((option) => option.setName('role')
-            .setDescription('What role do you want to remove from this user?')
+            .setDescription('What role do you want to add to this user?')
             .setRequired(true)),
     async execute(interaction) {
 
@@ -26,19 +26,19 @@ module.exports = {
         }
 
         if (!role) {
-            return interaction.reply({ content: 'I wasn\'t able to find that role!' });
+            return interction.editReply({ content: 'I wasn\'t able to find that role!' });
         }
 
-        if (!user.roles.cache.has(role.id)) {
-            return interaction.editReply({ content: 'This user hasn\'t got that role!' });
+        if (user.roles.cache.has(role.id)) {
+            return interaction.editReply({ content: 'This user already has that role!' });
         }
 
-        member.roles.remove(role.id).catch(error => {
+        member.roles.add(role.id).catch(error => {
             return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
-        const removeRoleEmbed = new EmbedBuilder()
-            .setTitle(`${user.user.tag} has been taken a role from! ${config.successEmoji}`)
+        const addRoleEmbed = new EmbedBuilder()
+            .setTitle(`${user.user.tag} has been added a role! ${config.successEmoji}`)
             .addFields(
                 { name: `Name`, value: `${user.user.tag}`, inline: true },
                 { name: `Server`, value: `${interaction.guild.name}`, inline: true },
@@ -48,6 +48,6 @@ module.exports = {
             .setColor(config.color)
             .setTimestamp()
 
-        interaction.editReply({ embeds: [removeRoleEmbed] });
+        interaction.editReply({ embeds: [addRoleEmbed] });
     },
 };
