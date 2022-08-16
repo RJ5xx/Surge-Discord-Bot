@@ -21,7 +21,7 @@ module.exports = {
             return interaction.editReply({ content: `${config.missingPermissions}` });
         }
 
-        member.setNickname(user.username).catch(error => {
+        member.setNickname(member.user.username).catch(error => {
             return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
         });
 
