@@ -17,7 +17,7 @@ module.exports = {
         const user = interaction.options.getMember('user');
         const member = interaction.guild.members.cache.get(user.id) || await interaction.guild.members.fetch(user.id).catch(error => { });
 
-        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageNickname)) {
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageNicknames)) {
             return interaction.editReply({ content: `${config.missingPermissions}` });
         }
 

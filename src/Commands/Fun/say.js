@@ -20,6 +20,8 @@ module.exports = {
             .setDescription(`${content}\n\n- ${interaction.user.username}`)
             .setColor(config.color)
 
-        interaction.editReply({ embeds: [embed] });
+        interaction.editReply({ embeds: [embed] }).catch(error => {
+            return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
+        });
     },
 };
