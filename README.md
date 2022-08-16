@@ -1,15 +1,15 @@
-<img width="350" height="200" align="left" style="float: left; margin: 0 10px 0 0;" alt="Surge" src="34BC0008-2652-486E-B5B5-8EBBC198F2C0.jpeg">  
+<img width="375" height="375" align="left" style="float: left; margin: 0 10px 0 0;" alt="Surge" src="surge.png">  
 
 <h1>Surge</h1>
 <p>The one bot your server <b>needs</b>!</p>
-<a href="https://discord.gg/hTBpKUFVn2"><img alt="Discord Server" src="https://img.shields.io/discord/963854873114345472?color=%23ed4245&label=Surge%20Community&style=for-the-badge"></a>
+<a href="https://discord.gg/u63938UWHf" target="_blank"><img alt="Discord Server" src="https://img.shields.io/discord/963854873114345472?color=%23BD910D&label=Surge%20Community&style=for-the-badge"></a>
 <br>
 <br>
 <h2>Links</h2>
 <ul>
-  <li><a href="https://discord.com/api/oauth2/authorize?client_id=982579470399586304&permissions=8&scope=bot%20applications.commands">Invite</a></li>
-  <li><a href="https://discord.gg/dRZQDYzdfK">Support Server</a></li>
-  <li><a href="">Website (coming soon)</a></li>
+  <li><a href="https://discord.com/api/oauth2/authorize?client_id=982579470399586304&permissions=8&scope=bot%20applications.commands" target="_blank">Invite</a></li>
+  <li><a href="https://discord.gg/dRZQDYzdfK" target="_blank">Support Server</a></li>
+  <li><a href="https://www.surge.ml/" target="_blank">Website (coming soon)</a></li>
   <li><a href="https://paypal.me/neutral75">Donate</a></li>
 </ul>
 <br>
@@ -17,7 +17,7 @@
 <ol>
   <li>Fork or download the project.</li>
   <li>Install all packages by running <b>npm ci</b>.</li>
-  <li>Fill the data in the <a href="https://github.com/DevAgility/Surge-Discord-Bot/blob/main/src/Database/config.json"><b>config.json</b></a> file. (You can change to env if you want)</li>
+  <li>Fill the data in the <a href="https://github.com/Neutral75/Surge-Discord-Bot/blob/main/src/Database/config.json"><b>config.json</b></a> file. (You can change to env if you want)</li>
   <li>Start the bot by running <b>npm start</b>.</li>
   <li>You're all set!</li>
 </ol>
