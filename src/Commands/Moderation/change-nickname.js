@@ -13,7 +13,7 @@ module.exports = {
         .addStringOption((option) => option.setName('nickname')
             .setDescription('What should the users nickname be?')
             .setRequired(true)),
-    async execute(interaction) {
+    async execute(interaction, client) {
 
         await interaction.deferReply();
 
