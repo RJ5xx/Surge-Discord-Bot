@@ -76,7 +76,7 @@ module.exports = {
                     .setEmoji('🔗')
                     .setStyle('Link')
                     .setLabel('Support')
-                    .setURL('https://discord.gg/mun838NkDj'),
+                    .setURL('https://discord.gg/u63938UWHf'),
 
                 new ButtonBuilder()
                     .setEmoji('✅')

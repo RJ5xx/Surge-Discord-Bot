@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="margin: auto; background: none; display: block; shape-rendering: auto;"
+width="280" height="250" preserveAspectRatio="xMidYMid">
+    <style type="text/css">
+        text { text-anchor: middle; font-size: 49px; opacity: 0; }
+    </style>
+    <g style="transform-origin:140px 125px;transform:scale(1)">
+        <g transform="translate(140,125)">
+            <g transform="translate(0,0)">
+                <g class="path" style="transform: matrix(1, 0, 0, 1, 0, 0); transform-origin: -99.66px -1.89489px; animation: 1s linear -0.565714s infinite normal forwards running bounce-d9c76144-083a-44c2-afe4-1a36cc8440b2;">
+                    <path style="#BD910D" d="M0.60 0.79L2.32-34.86L15.89-34.14L13.76-12.03L24.12-12.44L21.08 2.20L0.60 0.79"
+                    fill="#BD910D" stroke="none" stroke-width="none" transform="translate(-112.02001953125,14.435111171177462)">
+                    </path>
+                </g>
+                <g class="path" style="transform: matrix(1, 0, 0, 1, 0, 0); transform-origin: -66.385px -2.30989px; animation: 1s linear -0.471429s infinite normal forwards running bounce-d9c76144-083a-44c2-afe4-1a36cc8440b2;">
+                    <path d="M45.65 0.84L45.65 0.84L45.65 0.84Q37.25 0.84 31.28-4.29L31.28-4.29L31.28-4.29Q25.31-9.43 25.31-16.75L25.31-16.75L25.31-16.75Q25.31-24.07 31.28-29.20L31.28-29.20L31.28-29.20Q37.25-34.33 45.65-34.33L45.65-34.33L45.65-34.33Q54.02-34.33 59.99-29.20L59.99-29.20L59.99-29.20Q65.96-24.07 65.96-16.75L65.96-16.75L65.96-16.75Q65.96-9.43 59.99-4.29L59.99-4.29L59.99-4.29Q54.02 0.84 45.65 0.84zM44.31-11.29L44.31-11.29Q47.44-11.29 49.63-13.17L49.63-13.17L49.63-13.17Q51.82-15.05 51.82-17.63L51.82-17.63L51.82-17.63Q51.82-20.22 49.63-22.10L49.63-22.10L49.63-22.10Q47.44-23.97 44.31-23.97L44.31-23.97L44.31-23.97Q41.15-23.97 38.96-22.10L38.96-22.10L38.96-22.10Q36.77-20.22 36.77-17.63L36.77-17.63L36.77-17.63Q36.77-15.05 38.96-13.17L38.96-13.17L38.96-13.17Q41.15-11.29 44.31-11.29L44.31-11.29"
+                    fill="#BD910D" stroke="none" stroke-width="none" transform="translate(-112.02001953125,14.435111171177462)"
+                    style="#BD910D">
+                    </path>
+                </g>
+                <g class="path" style="transform: matrix(1, 0, 0, 1, 0, 0); transform-origin: -30.31px -2.44489px; animation: 1s linear -0.377143s infinite normal forwards running bounce-d9c76144-083a-44c2-afe4-1a36cc8440b2;">
+                    <path d="M85.65-5.77L76.61-4.04L74.77 1.24L62.45-2.66L76.13-34.29L86.20-35.00L100.97-4.95L88.19 1.15L85.65-5.77zM79.55-15.38L83.09-15.93L81.47-21.17L79.55-15.38"
+                    fill="#BD910D" stroke="none" stroke-width="none" transform="translate(-112.02001953125,14.435111171177462)"
+                    style="#BD910D">
+                    </path>
+                </g>
+                <g class="path" style="transform: matrix(1, 0, 0, 1, 0, 0); transform-origin: 5.49998px -2.30989px; animation: 1s linear -0.282857s infinite normal forwards running bounce-d9c76144-083a-44c2-afe4-1a36cc8440b2;">
+                    <path d="M101.95 0.84L101.95 0.84L100.34-34.33L100.34-34.33Q134.70-34.33 134.70-16.75L134.70-16.75L134.70-16.75Q134.70 0.84 101.95 0.84zM112.24-23.78L112.24-23.78L113.60-13.88L113.77-13.88L113.77-13.88Q122.40-13.88 122.40-18.81L122.40-18.81L122.40-18.81Q122.40-23.78 112.24-23.78"
+                    fill="#BD910D" stroke="none" stroke-width="none" transform="translate(-112.02001953125,14.435111171177462)"
+                    style="#BD910D">
+                    </path>
+                </g>
+                <g class="path" style="transform: matrix(1, 0, 0, 1, 0, 0); transform-origin: 30.855px -1.39989px; animation: 1s linear -0.188571s infinite normal forwards running bounce-d9c76144-083a-44c2-afe4-1a36cc8440b2;">
+                    <path d="M135.87-33.23L147.96-34.21L150.52-0.33L135.23 2.54L135.87-33.23"
+                    fill="#BD910D" stroke="none" stroke-width="none" transform="translate(-112.02001953125,14.435111171177462)"
+                    style="#BD910D">
+                    </path>
+                </g>
+                <g class="path" style="transform: matrix(1, 0, 0, 1, 0, 0); transform-origin: 58.07px -2.39489px; animation: 1s linear -0.0942857s infinite normal forwards running bounce-d9c76144-083a-44c2-afe4-1a36cc8440b2;">
+                    <path d="M174.25 2.30L164.13-12.97L165.95-2.42L152.31 1.05L149.75-32.11L162.98-34.41L173.63-20.31L173.77-34.26L190.43-35.96L184.90 0.74L174.25 2.30"
+                    fill="#BD910D" stroke="none" stroke-width="none" transform="translate(-112.02001953125,14.435111171177462)"
+                    style="#BD910D">
+                    </path>
+                </g>
+                <g class="path" style="transform: matrix(1, 0, 0, 1, 0, 0); transform-origin: 94.88px -0.614889px; animation: 1s linear 0s infinite normal forwards running bounce-d9c76144-083a-44c2-afe4-1a36cc8440b2;">
+                    <path d="M206.96-18.26L224.02-19.31L224.64 0.29L210.86 4.23L211.07 0.45L211.07 0.45Q209.76 0.84 207.05 0.84L207.05 0.84L207.05 0.84Q199.66 0.84 194.41-4.31L194.41-4.31L194.41-4.31Q189.16-9.45 189.16-16.75L189.16-16.75L189.16-16.75Q189.16-24.05 194.41-29.19L194.41-29.19L194.41-29.19Q199.66-34.33 207.05-34.33L207.05-34.33L207.05-34.33Q214.45-34.33 219.71-29.19L219.71-29.19L210.43-22.42L210.43-22.42Q208.51-24.28 205.83-24.28L205.83-24.28L205.83-24.28Q203.15-24.28 201.25-22.42L201.25-22.42L201.25-22.42Q199.35-20.55 199.35-17.94L199.35-17.94L199.35-17.94Q199.18-14.43 201.13-12.67L201.13-12.67L201.13-12.67Q203.08-10.91 206.40-11.14L206.40-11.14L206.40-11.14Q209.71-11.36 211.62-13.11L211.62-13.11L206.62-12.78L206.96-18.26"
+                    fill="#BD910D" stroke="none" stroke-width="none" transform="translate(-112.02001953125,14.435111171177462)"
+                    style="#BD910D">
+                    </path>
+                </g>
+            </g>
+        </g>
+    </g>
+    <style id="bounce-d9c76144-083a-44c2-afe4-1a36cc8440b2" data-anikit="">
+        @keyframes bounce-d9c76144-083a-44c2-afe4-1a36cc8440b2 { 0% { animation-timing-function:
+        cubic-bezier(0.1361,0.2514,0.2175,0.8786); transform: translate(0,0px)
+        scaleY(1); } 37% { animation-timing-function: cubic-bezier(0.7674,0.1844,0.8382,0.7157);
+        transform: translate(0,-39.96px) scaleY(1); } 72% { animation-timing-function:
+        cubic-bezier(0.1118,0.2149,0.2172,0.941); transform: translate(0,0px) scaleY(1);
+        } 87% { animation-timing-function: cubic-bezier(0.7494,0.2259,0.8209,0.6963);
+        transform: translate(0,19.900000000000002px) scaleY(0.602); } 100% { transform:
+        translate(0,0px) scaleY(1); } }
+    </style>
+</svg>

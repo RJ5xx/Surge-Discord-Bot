@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
+
+:root {
+    --primary: #BD910D;
+    --dark: #000000;
+    --light: rgb(247, 238, 238);
+    --background: #100f0f;
+    --grey1: #23272a;
+    --grey: #2c2f33;
+    --burple: #5865F2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DynaPuff', cursive;
+}
+
+::selection {
+    color: var(--light);
+    background: var(--primary);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 20px;
+    border: 2px solid var(--dark);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--light);
+}
+
+section {
+    padding: 32px 9%;
+    margin-bottom: 105px;
+}
+
+/* Preloader Start */
+.preloader {
+    width: 3000px;
+    height: 3000px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--background);
+    z-index: 100;
+    transition: all ease 4s;
+    overflow: hidden;
+}
+
+.preloader img {
+    width: 200px;
+    object-position: center;
+    object-fit: contain;
+    position: relative;
+}
+
+/* Preloader End */
+/* Navbar Start */
+nav {
+    display: flex;
+    height: 80px;
+    width: 100%;
+    background: var(--dark);
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 200px 0 200px;
+    flex-wrap: wrap;
+    border-bottom: 4px solid var(--primary);
+}
+
+nav .logo {
+    color: var(--light);
+    font-size: 35px;
+    font-weight: 600;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 5px;
+}
+
+nav ul li a {
+    color: var(--light);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 16px;
+    transition: 0.5s;
+}
+
+nav ul li a:hover {
+    color: var(--primary);
+    text-shadow: 2px 2px 5px var(--primary);
+}
+
+nav .menu-btn i {
+    color: var(--light);
+    font-size: 22px;
+    cursor: pointer;
+    display: none;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    nav {
+        padding: 0 40px 0 50px;
+    }
+}
+
+@media (max-width: 920px) {
+    nav .menu-btn i {
+        display: block;
+    }
+
+    #click:checked~.menu-btn i:before {
+        content: "\f00d";
+    }
+
+    nav ul {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        background: #111;
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+        display: block;
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+
+    #click:checked~ul {
+        left: 0;
+    }
+
+    nav ul li {
+        width: 100%;
+        margin: 40px 0;
+    }
+
+    nav ul li a {
+        width: 100%;
+        margin-left: -100%;
+        display: block;
+        font-size: 20px;
+        transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    #click:checked~ul li a {
+        margin-left: 0px;
+    }
+
+    nav ul li a:hover {
+        background: none;
+        color: var(--primary);
+    }
+}
+
+/* Navbar End */
+/* Home Start */
+.home {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 144px;
+    gap: 24px;
+}
+
+.home .image {
+    flex: 1 1 672px;
+}
+
+.home .image img {
+    width: 80%;
+}
+
+.home .content {
+    flex: 1 1 672px;
+    z-index: 1;
+}
+
+.home .content h3 {
+    color: var(--dark);
+    font-size: 55px;
+    line-height: 1.8;
+}
+
+.home .content h3 a {
+    color: var(--primary);
+    font-size: 50px;
+}
+
+.home .content p {
+    color: var(--dark);
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.8;
+    padding: 8px 0;
+}
+
+.home .content button {
+    background: var(--primary);
+    font-size: 18px;
+    font-weight: 500;
+    padding: 15px 140px;
+    border: 3px solid var(--dark);
+    border-radius: 5px;
+    transition: 0.3s;
+    box-shadow: 6px 8px;
+}
+
+.home .content button:hover {
+    box-shadow: 2px 4px;
+}
+
+/* Home End */
+/* About Start */
+.about {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 160px;
+    gap: 50px;
+    background-color: var(--background);
+    margin-bottom: 0;
+}
+
+.about .image {
+    flex: 1 1 112px;
+}
+
+.about .image img {
+    width: 60%;
+}
+
+.about .content {
+    flex: 1 1 672px;
+    z-index: 1;
+}
+
+.about .content h3 {
+    color: var(--light);
+    font-size: 55px;
+    line-height: 2;
+}
+
+.about .content h3 span {
+    text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+    background: url('https://cdn.discordapp.com/attachments/995774107218104410/1008012421853614091/text-background.png') repeat-y;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: text 80s linear infinite;
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+}
+
+@-webkit-keyframes text {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.about .content p {
+    color: var(--light);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.8;
+    padding: 8px 0;
+}
+
+/* About End */
+/* Stats Start */
+
+/* Stats End */
+/* Footer Start */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 160px;
+    background-color: var(--background);
+}
+
+footer p {
+    padding: 40px 0;
+    color: var(--light);
+}
+
+/* Footer End */
