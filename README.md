@@ -2,7 +2,7 @@
 
 <h1>Surge</h1>
 <p>The one bot your server <b>needs</b>!</p>
-<a href="https://discord.gg/u63938UWHf" target="_blank"><img alt="Discord Server" src="https://img.shields.io/discord/963854873114345472?color=%23BD910D&label=Surge%20Community&style=for-the-badge"></a>
+<a href="https://discord.gg/u63938UWHf" target="_blank"><img alt="Discord Server" src="https://img.shields.io/discord/1009036624237174865?color=%23BD910D&label=Surge%20Community&style=for-the-badge"></a>
 <br>
 <br>
 <h2>Links</h2>
