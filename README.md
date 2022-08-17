@@ -8,8 +8,8 @@
 <h2>Links</h2>
 <ul>
   <li><a href="https://discord.com/api/oauth2/authorize?client_id=982579470399586304&permissions=8&scope=bot%20applications.commands" target="_blank">Invite</a></li>
-  <li><a href="https://discord.gg/dRZQDYzdfK" target="_blank">Support Server</a></li>
-  <li><a href="https://www.surge.ml/" target="_blank">Website (coming soon)</a></li>
+  <li><a href="https://discord.gg/u63938UWHf" target="_blank">Support Server</a></li>
+  <li><a href="https://www.surge.ml/" target="_blank">Website</a></li>
   <li><a href="https://paypal.me/neutral75">Donate</a></li>
 </ul>
 <br>
