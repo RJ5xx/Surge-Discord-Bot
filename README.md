@@ -2,14 +2,14 @@
 
 <h1>Surge</h1>
 <p>The one bot your server <b>needs</b>!</p>
-<a href="https://discord.gg/u63938UWHf" target="_blank"><img alt="Discord Server" src="https://img.shields.io/discord/963854873114345472?color=%23BD910D&label=Surge%20Community&style=for-the-badge"></a>
+<a href="https://discord.gg/u63938UWHf" target="_blank"><img alt="Discord Server" src="https://img.shields.io/discord/1009036624237174865?color=%23BD910D&label=Surge%20Community&style=for-the-badge"></a>
 <br>
 <br>
 <h2>Links</h2>
 <ul>
   <li><a href="https://discord.com/api/oauth2/authorize?client_id=982579470399586304&permissions=8&scope=bot%20applications.commands" target="_blank">Invite</a></li>
-  <li><a href="https://discord.gg/dRZQDYzdfK" target="_blank">Support Server</a></li>
-  <li><a href="https://www.surge.ml/" target="_blank">Website (coming soon)</a></li>
+  <li><a href="https://discord.gg/u63938UWHf" target="_blank">Support Server</a></li>
+  <li><a href="https://www.surge.ml/" target="_blank">Website</a></li>
   <li><a href="https://paypal.me/neutral75">Donate</a></li>
 </ul>
 <br>
