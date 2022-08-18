@@ -49,7 +49,7 @@ module.exports = {
 
         const subCommand = interaction.options.getSubcommand();
 
-        const roleInfo = interaction.options.getString('role-info');
+        const roleInfo = interaction.options.getRole('role-info');
         const roleAddUser = interaction.options.getString('role-add-user');
         const roleAddRole = interaction.options.getRole('role-add-role');
         const roleRemoveUser = interaction.options.getString('role-remove-user');
