@@ -183,7 +183,7 @@ module.exports = {
                 });
 
                 const roleDeleteEmbed = new EmbedBuilder()
-                    .setTitle(`${rdRole.name} has been deleted! ${config.successEmoji}`)
+                    .setTitle(`${roleDelete.name} has been deleted! ${config.successEmoji}`)
                     .addFields(
                         { name: 'Role', value: roleDelete.name, inline: true },
                         { name: 'Server', value: interaction.guild.name, inline: true },
