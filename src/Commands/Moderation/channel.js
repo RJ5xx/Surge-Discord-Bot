@@ -42,12 +42,12 @@ module.exports = {
                     .setTimestamp()
                     .setTitle(`${channelInfo.name}\'s Info!`)
                     .addFields(
-                        { name: 'Channel Name', value: channelInfo.name, inline: true },
-                        { name: 'Channel ID', value: channelInfo.id, inline: true },
-                        { name: 'Channel Category', value: channelInfo.parent, inline: true },
-                        { name: 'Channel Position ', value: channelInfo.position, inline: true },
-                        { name: 'Channel Type', value: channelInfo.type, inline: true },
-                        { name: 'Created at', value: `<t:${channelInfo.createdTimestamp}:d>`, inline: true },
+                        { name: 'Channel Name', value: `${channelInfo.name}`, inline: true },
+                        { name: 'Channel ID', value: `${channelInfo.id}`, inline: true },
+                        { name: 'Channel Category', value: `${channelInfo.parent}`, inline: true },
+                        { name: 'Channel Position ', value: `${channelInfo.position}`, inline: true },
+                        { name: 'Channel Type', value: `${channelInfo.type}`, inline: true },
+                        { name: 'Created at', value: `<t:${Math.round(channelInfo.createdTimestamp / 1000)}:d>`, inline: true },
                     )
 
                 interaction.editReply({ embeds: [channelInfoEmbed] });
@@ -75,9 +75,9 @@ module.exports = {
                 const channelCreateEmbed = new EmbedBuilder()
                     .setTitle(`${channelCreate} has been created! ${config.successEmoji}`)
                     .addFields(
-                        { name: 'Channel', value: channelCreate, inline: true },
-                        { name: 'Server', value: interaction.guild.name, inline: true },
-                        { name: 'Moderator', value: interaction.member.user.tag, inline: true },
+                        { name: 'Channel', value: `${channelCreate}`, inline: true },
+                        { name: 'Server', value: `${interaction.guild.name}`, inline: true },
+                        { name: 'Moderator', value: `${interaction.member.user.tag}`, inline: true },
                     )
                     .setColor(config.color)
                     .setTimestamp()
@@ -98,9 +98,9 @@ module.exports = {
                 const channelDeleteEmbed = new EmbedBuilder()
                     .setTitle(`${channelDelete.name} has been deleted! ${config.successEmoji}`)
                     .addFields(
-                        { name: 'Channel', value: channelDelete.name, inline: true },
-                        { name: 'Server', value: interaction.guild.name, inline: true },
-                        { name: 'Moderator', value: interaction.member.user.tag, inline: true },
+                        { name: 'Channel', value: `${channelDelete.name}`, inline: true },
+                        { name: 'Server', value: `${interaction.guild.name}`, inline: true },
+                        { name: 'Moderator', value: `${interaction.member.user.tag}`, inline: true },
                     )
                     .setColor(config.color)
                     .setTimestamp()

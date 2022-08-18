@@ -50,9 +50,9 @@ module.exports = {
         const subCommand = interaction.options.getSubcommand();
 
         const roleInfo = interaction.options.getRole('role-info');
-        const roleAddUser = interaction.options.getString('role-add-user');
+        const roleAddUser = interaction.options.getMember('role-add-user');
         const roleAddRole = interaction.options.getRole('role-add-role');
-        const roleRemoveUser = interaction.options.getString('role-remove-user');
+        const roleRemoveUser = interaction.options.getMember('role-remove-user');
         const roleRemoveRole = interaction.options.getRole('role-remove-role');
         const roleCreate = interaction.options.getString('role-create');
         const roleDelete = interaction.options.getRole('role-delete');
@@ -65,12 +65,12 @@ module.exports = {
                     .setTimestamp()
                     .setTitle(`${roleInfo.name}\'s Info!`)
                     .addFields(
-                        { name: 'Role Name', value: roleInfo.name, inline: true },
-                        { name: 'Role ID', value: roleInfo.id, inline: true },
-                        { name: 'Role Position', value: roleInfo.position, inline: true },
-                        { name: 'Role Color', value: roleInfo.hexColor, inline: true },
-                        { name: 'Mentionable', value: roleInfo.mentionable, inline: true },
-                        { name: 'Created at', value: `<t:${roleInfo.createdTimestamp}:d>`, inline: true },
+                        { name: 'Role Name', value: `${roleInfo.name}`, inline: true },
+                        { name: 'Role ID', value: `${roleInfo.id}`, inline: true },
+                        { name: 'Role Position', value: `${roleInfo.position}`, inline: true },
+                        { name: 'Role Color', value: `${roleInfo.hexColor}`, inline: true },
+                        { name: 'Mentionable', value: `${roleInfo.mentionable}`, inline: true },
+                        { name: 'Created at', value: `<t:${Math.round(roleInfo.createdTimestamp / 1000)}:d>`, inline: true },
                     )
                     .setTimestamp()
 
@@ -79,7 +79,7 @@ module.exports = {
                 break;
 
             case "add": {
-                const raMember = interaction.guild.members.cache.get(roleAddUser.id) || await interaction.guild.members.fetch(roleAddUser.id).catch(error => { });
+                const roleAddMember = interaction.guild.members.cache.get(roleAddUser.id) || await interaction.guild.members.fetch(roleAddUser.id).catch(error => { });
 
                 if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageRoles)) {
                     return interaction.editReply({ content: config.missingPermissions });
@@ -93,17 +93,17 @@ module.exports = {
                     return interaction.editReply({ content: 'This user already has that role!' });
                 }
 
-                raMember.roles.add(roleAddRole.id).catch(error => {
+                roleAddMember.roles.add(roleAddRole.id).catch(error => {
                     return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
                 });
 
                 const roleAddEmbed = new EmbedBuilder()
                     .setTitle(`${roleAddUser.user.tag} has been added a role! ${config.successEmoji}`)
                     .addFields(
-                        { name: 'Name', value: roleAddUser.user.tag, inline: true },
-                        { name: 'Server', value: roleAddUser.guild.name, inline: true },
-                        { name: 'Moderator', value: interaction.member.user.tag, inline: true },
-                        { name: 'Role', value: roleAddRole, inline: true },
+                        { name: 'Name', value: `${roleAddUser.user.tag}`, inline: true },
+                        { name: 'Server', value: `${roleAddUser.guild.name}`, inline: true },
+                        { name: 'Moderator', value: `${interaction.member.user.tag}`, inline: true },
+                        { name: 'Role', value: `${roleAddRole}`, inline: true },
                     )
                     .setColor(config.color)
                     .setTimestamp()
@@ -113,8 +113,7 @@ module.exports = {
                 break;
 
             case "remove": {
-                const rrMember = interaction.guild.members.cache.get(roleRemoveUser.id) || await interaction.guild.members.fetch(roleRemoveUser.id).catch(error => { });
-
+                const roleRemoveMember = interaction.guild.members.cache.get(roleRemoveUser.id) || await interaction.guild.members.fetch(roleRemoveUser.id).catch(error => { });
 
                 if (!interaction.member.permissions.has(PermissionsBitField.Flags.ManageRoles)) {
                     return interaction.editReply({ content: config.missingPermissions });
@@ -128,17 +127,17 @@ module.exports = {
                     return interaction.editReply({ content: 'This user hasn\'t got that role!' });
                 }
 
-                rrMember.roles.remove(roleRemoveRole.id).catch(error => {
+                roleRemoveMember.roles.remove(roleRemoveRole.id).catch(error => {
                     return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
                 });
 
                 const roleRemoveEmbed = new EmbedBuilder()
                     .setTitle(`${roleRemoveUser.user.tag} has been taken a role from! ${config.successEmoji}`)
                     .addFields(
-                        { name: 'Name', value: roleRemoveUser.user.tag, inline: true },
-                        { name: 'Server', value: roleRemoveUser.guild.name, inline: true },
-                        { name: 'Moderator', value: interaction.member.user.tag, inline: true },
-                        { name: 'Role', value: roleRemoveRole, inline: true },
+                        { name: 'Name', value: `${roleRemoveUser.user.tag}`, inline: true },
+                        { name: 'Server', value: `${roleRemoveUser.guild.name}`, inline: true },
+                        { name: 'Moderator', value: `${interaction.member.user.tag}`, inline: true },
+                        { name: 'Role', value: `${roleRemoveRole}`, inline: true },
                     )
                     .setColor(config.color)
                     .setTimestamp()
@@ -162,9 +161,9 @@ module.exports = {
                 const roleCreateEmbed = new EmbedBuilder()
                     .setTitle(`${roleCreate} has been created! ${config.successEmoji}`)
                     .addFields(
-                        { name: 'Role', value: roleCreate, inline: true },
-                        { name: 'Server', value: interaction.guild.name, inline: true },
-                        { name: 'Moderator', value: interaction.member.user.tag, inline: true },
+                        { name: 'Role', value: `${roleCreate}`, inline: true },
+                        { name: 'Server', value: `${interaction.guild.name}`, inline: true },
+                        { name: 'Moderator', value: `${interaction.member.user.tag}`, inline: true },
                     )
                     .setColor(config.color)
                     .setTimestamp()
@@ -185,9 +184,9 @@ module.exports = {
                 const roleDeleteEmbed = new EmbedBuilder()
                     .setTitle(`${roleDelete.name} has been deleted! ${config.successEmoji}`)
                     .addFields(
-                        { name: 'Role', value: roleDelete.name, inline: true },
-                        { name: 'Server', value: interaction.guild.name, inline: true },
-                        { name: 'Moderator', value: interaction.member.user.tag, inline: true },
+                        { name: 'Role', value: `${roleDelete.name}`, inline: true },
+                        { name: 'Server', value: `${interaction.guild.name}`, inline: true },
+                        { name: 'Moderator', value: `${interaction.member.user.tag}`, inline: true },
                     )
                     .setColor(config.color)
                     .setTimestamp()
