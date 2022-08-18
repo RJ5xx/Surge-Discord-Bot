@@ -23,7 +23,6 @@ module.exports = {
                 .setDescription('Which channel should the giveaway be in?')
                 .setRequired(false)),
         )
-
         .addSubcommand(subcommand => subcommand.setName('actions')
             .setDescription('Options for the giveaway!')
             .addStringOption((option) => option.setName('options')
@@ -81,8 +80,8 @@ module.exports = {
                 }).catch((err) => {
                     errorEmbed.setDescription(`There was an error while trying to start this giveaway!\n\`${err}\``)
                     return interaction.editReply({ embeds: [errorEmbed], ephemeral: true });
-                })
-            }
+                });
+            };
                 break;
 
             case "actions": {
@@ -104,7 +103,7 @@ module.exports = {
                             errorEmbed.setDescription(`An error has occured!\n\`${err}\``);
                             return interaction.editReply({ embeds: [errorEmbed], ephemeral: true });
                         });
-                    }
+                    };
                         break;
 
                     case "pause": {
@@ -115,7 +114,7 @@ module.exports = {
                             errorEmbed.setDescription(`An error has occured!\n\`${err}\``);
                             return interaction.editReply({ embeds: [errorEmbed], ephemeral: true });
                         });
-                    }
+                    };
                         break;
 
                     case "unpause": {
@@ -126,7 +125,7 @@ module.exports = {
                             errorEmbed.setDescription(`An error has occured!\n\`${err}\``);
                             return interaction.editReply({ embeds: [errorEmbed], ephemeral: true });
                         });
-                    }
+                    };
                         break;
 
                     case "reroll": {
@@ -137,7 +136,7 @@ module.exports = {
                             errorEmbed.setDescription(`An error has occured!\n\`${err}\``);
                             return interaction.editReply({ embeds: [errorEmbed], ephemeral: true });
                         });
-                    }
+                    };
                         break;
 
                     case "delete": {
@@ -148,15 +147,15 @@ module.exports = {
                             errorEmbed.setDescription(`An error has occured!\n\`${err}\``);
                             return interaction.editReply({ embeds: [errorEmbed], ephemeral: true });
                         });
-                    }
+                    };
                         break;
-                }
-            }
+                };
+            };
                 break;
 
             default: {
                 console.log('An error occured in the giveaway command!');
-            }
-        }
+            };
+        };
     },
 };
