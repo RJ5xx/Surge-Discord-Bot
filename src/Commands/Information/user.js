@@ -11,19 +11,19 @@ module.exports = {
             .setDescription('Gets an users information!')
             .addUserOption(option => option.setName('user-info')
                 .setDescription('Which users information would you like to get?')
-                .setRequired(true)),
+                .setRequired(false)),
         )
         .addSubcommand(subcommand => subcommand.setName('avatar')
             .setDescription('Get an users avatar!')
             .addUserOption(option => option.setName('user-avatar')
                 .setDescription('Which users avatar would you like to get?')
-                .setRequired(true)),
+                .setRequired(false)),
         )
         .addSubcommand(subcommand => subcommand.setName('banner')
             .setDescription('Gets an users banner!')
             .addUserOption(option => option.setName('user-banner')
                 .setDescription('Which users banner would you like to get?')
-                .setRequired(true)),
+                .setRequired(false)),
         ),
     async execute(interaction) {
 
@@ -39,7 +39,6 @@ module.exports = {
             case 'info': {
                 const userInfoMember = interaction.guild.members.cache.get(userInfo.id) || await interaction.guild.members.fetch(userInfo.id).catch(error => { });
 
-
                 const userInfoEmbed = new EmbedBuilder()
                     .setColor(config.color)
                     .setAuthor({ name: `${userInfo.tag}`, iconURL: `${userInfo.displayAvatarURL({ dynamic: true })}` })
@@ -48,7 +47,7 @@ module.exports = {
                     .addFields(
                         { name: 'User since', value: `<t:${Math.round(userInfo.createdTimestamp / 1000)}:d>`, inline: true },
                         { name: 'Member since', value: `<t:${Math.round(userInfoMember.joinedTimestamp / 1000)}:d>`, inline: true },
-                        { name: 'Roles', value: `${userInfoMember.roles.cache.map(roles => roles).join(' ').replace('@everyone', ' ') || 'None'}` }
+                        { name: 'Roles', value: `${userInfoMember.roles.cache.map(roles => roles).join(' ') || 'None'}` }
                     )
 
                 interaction.editReply({ embeds: [userInfoEmbed] });

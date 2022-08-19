@@ -15,7 +15,9 @@ module.exports = {
         await interaction.deferReply();
 
         const id = interaction.options.getString('id');
-        const guild = client.guilds.cache.get(id);
+        const guild = client.guilds.cache.get(id).catch(error => {
+            return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
+        });
 
         guild.leave().catch(error => {
             return interaction.editReply({ content: `${config.errorMessage} ${config.errorEmoji}\n${error}` });
