@@ -116,14 +116,14 @@ module.exports = {
 
         const moderationEmbed = new EmbedBuilder()
             .setTitle('Moderation Commands')
-            .setDescription('Kick\nBan\nTimeout\nPurge\nChange-nickname\nRole-create\nRole-delete\nAdd-role\nRemove-role\nChannel-create\nChannel-delete')
+            .setDescription('Kick\nBan\nTimeout\nPurge\nNickname\n> Nickname change\n> Nickname reset\n\nChannel\n> Channel info\n> Channel create\n> Channel delete\n\nRole\n> Role info\n> Role add\n> Role remove\n> Role create\n> Role delete')
             .setFooter({ text: `${client.user.username} Commands` })
             .setTimestamp()
             .setColor(config.color)
 
         const informationEmbed = new EmbedBuilder()
             .setTitle('Information Commands')
-            .setDescription('Help\nInvite\nVote\nBot-info\nUser-info\nUser-banner\nServer-info\nServer-banner\nRole-info\nChannel-info')
+            .setDescription('Info\nServer\n> Server Info\n> Server Avatar\n> Server Banner\n\nUser\n> User info\n> User avatar\n> User banner')
             .setFooter({ text: `${client.user.username} Commands` })
             .setTimestamp()
             .setColor(config.color)
@@ -151,7 +151,7 @@ module.exports = {
 
         const utilityEmbed = new EmbedBuilder()
             .setTitle('Utility Commands')
-            .setDescription('DM')
+            .setDescription('Help\nInvite\nVote\nDM')
             .setFooter({ text: `${client.user.username} Commands` })
             .setTimestamp()
             .setColor(config.color)
