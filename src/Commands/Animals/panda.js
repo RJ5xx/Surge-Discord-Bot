@@ -14,19 +14,17 @@ module.exports = {
 
         const url = "https://some-random-api.ml/img/panda";
 
-        axios
-            .get(url)
-            .then((res) => {
-                const pandaEmbed = new EmbedBuilder()
-                    .setColor(config.color)
-                    .setTitle(`Panda Image!`)
-                    .setImage(res.data.link)
-                    .setFooter({ text: 'Aww, how cute' })
-                    .setTimestamp()
+        axios.get(url).then((res) => {
+            const pandaEmbed = new EmbedBuilder()
+                .setColor(config.color)
+                .setTitle(`Panda Image!`)
+                .setImage(res.data.link)
+                .setFooter({ text: 'Aww, how cute' })
+                .setTimestamp()
 
-                interaction.editReply({ embeds: [pandaEmbed] });
-            }).catch(() => {
-                interaction.editReply({ content: 'Image not avaibale, try again later!' });
-            })
+            interaction.editReply({ embeds: [pandaEmbed] });
+        }).catch(() => {
+            interaction.editReply({ content: 'Image not avaibale, try again later!' });
+        })
     },
 };

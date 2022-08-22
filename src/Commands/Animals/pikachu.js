@@ -14,19 +14,17 @@ module.exports = {
 
         const url = "https://some-random-api.ml/img/pikachu";
 
-        axios
-            .get(url)
-            .then((res) => {
-                const pikachuEmbed = new EmbedBuilder()
-                    .setColor(config.color)
-                    .setTitle(`Pikachu Image!`)
-                    .setImage(res.data.link)
-                    .setFooter({ text: 'Aww, how cute' })
-                    .setTimestamp()
+        axios.get(url).then((res) => {
+            const pikachuEmbed = new EmbedBuilder()
+                .setColor(config.color)
+                .setTitle(`Pikachu Image!`)
+                .setImage(res.data.link)
+                .setFooter({ text: 'Aww, how cute' })
+                .setTimestamp()
 
-                interaction.editReply({ embeds: [pikachuEmbed] });
-            }).catch(() => {
-                interaction.editReply({ content: 'Image not avaibale, try again later!' });
-            })
+            interaction.editReply({ embeds: [pikachuEmbed] });
+        }).catch(() => {
+            interaction.editReply({ content: 'Image not avaibale, try again later!' });
+        })
     },
 };

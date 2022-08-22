@@ -14,19 +14,17 @@ module.exports = {
 
         const url = "https://some-random-api.ml/img/cat";
 
-        axios
-            .get(url)
-            .then((res) => {
-                const catEmbed = new EmbedBuilder()
-                    .setColor(config.color)
-                    .setTitle(`Cat Image!`)
-                    .setImage(res.data.link)
-                    .setFooter({ text: 'Aww, how cute' })
-                    .setTimestamp()
+        axios.get(url).then((res) => {
+            const catEmbed = new EmbedBuilder()
+                .setColor(config.color)
+                .setTitle(`Cat Image!`)
+                .setImage(res.data.link)
+                .setFooter({ text: 'Aww, how cute' })
+                .setTimestamp()
 
-                interaction.editReply({ embeds: [catEmbed] });
-            }).catch(() => {
-                interaction.editReply({ content: 'Image not avaibale, try again later!' });
-            })
+            interaction.editReply({ embeds: [catEmbed] });
+        }).catch(() => {
+            interaction.editReply({ content: 'Image not avaibale, try again later!' });
+        })
     },
 };

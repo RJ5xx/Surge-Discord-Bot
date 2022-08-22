@@ -14,19 +14,17 @@ module.exports = {
 
         const url = "https://some-random-api.ml/img/raccoon";
 
-        axios
-            .get(url)
-            .then((res) => {
-                const raccoonEmbed = new EmbedBuilder()
-                    .setColor(config.color)
-                    .setTitle(`Raccoon Image!`)
-                    .setImage(res.data.link)
-                    .setFooter({ text: 'Aww, how cute' })
-                    .setTimestamp()
+        axios.get(url).then((res) => {
+            const raccoonEmbed = new EmbedBuilder()
+                .setColor(config.color)
+                .setTitle(`Raccoon Image!`)
+                .setImage(res.data.link)
+                .setFooter({ text: 'Aww, how cute' })
+                .setTimestamp()
 
-                interaction.editReply({ embeds: [raccoonEmbed] });
-            }).catch(() => {
-                interaction.editReply({ content: 'Image not avaibale, try again later!' });
-            })
+            interaction.editReply({ embeds: [raccoonEmbed] });
+        }).catch(() => {
+            interaction.editReply({ content: 'Image not avaibale, try again later!' });
+        })
     },
 };

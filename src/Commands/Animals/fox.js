@@ -14,19 +14,17 @@ module.exports = {
 
         const url = "https://some-random-api.ml/img/fox";
 
-        axios
-            .get(url)
-            .then((res) => {
-                const foxEmbed = new EmbedBuilder()
-                    .setColor(config.color)
-                    .setTitle(`Fox Image!`)
-                    .setImage(res.data.link)
-                    .setFooter({ text: 'Aww, how cute' })
-                    .setTimestamp()
+        axios.get(url).then((res) => {
+            const foxEmbed = new EmbedBuilder()
+                .setColor(config.color)
+                .setTitle(`Fox Image!`)
+                .setImage(res.data.link)
+                .setFooter({ text: 'Aww, how cute' })
+                .setTimestamp()
 
-                interaction.editReply({ embeds: [foxEmbed] });
-            }).catch(() => {
-                interaction.editReply({ content: 'Image not avaibale, try again later!' });
-            })
+            interaction.editReply({ embeds: [foxEmbed] });
+        }).catch(() => {
+            interaction.editReply({ content: 'Image not avaibale, try again later!' });
+        })
     },
 };

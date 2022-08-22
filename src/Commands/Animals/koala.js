@@ -14,19 +14,17 @@ module.exports = {
 
         const url = "https://some-random-api.ml/img/koala";
 
-        axios
-            .get(url)
-            .then((res) => {
-                const koalaEmbed = new EmbedBuilder()
-                    .setColor(config.color)
-                    .setTitle(`Koala Image!`)
-                    .setImage(res.data.link)
-                    .setFooter({ text: 'Aww, how cute' })
-                    .setTimestamp()
+        axios.get(url).then((res) => {
+            const koalaEmbed = new EmbedBuilder()
+                .setColor(config.color)
+                .setTitle(`Koala Image!`)
+                .setImage(res.data.link)
+                .setFooter({ text: 'Aww, how cute' })
+                .setTimestamp()
 
-                interaction.editReply({ embeds: [koalaEmbed] });
-            }).catch(() => {
-                interaction.editReply({ content: 'Image not avaibale, try again later!' });
-            })
+            interaction.editReply({ embeds: [koalaEmbed] });
+        }).catch(() => {
+            interaction.editReply({ content: 'Image not avaibale, try again later!' });
+        })
     },
 };
